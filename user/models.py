@@ -23,5 +23,8 @@ class User(models.Model):
     specify_other = models.CharField(max_length=255, blank=True, null=True)
     REQUIRED_FIELDS = []
 
+    def get_fullname(self):
+        return f'{self.first_name} {self.last_name}'
+
     def __str__(self):
         return self.email

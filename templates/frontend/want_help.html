@@ -1,7 +1,7 @@
 {% extends 'frontend/base/base.html' %}
 {% load static %}
 {% block extra_css %}
-   <style>
+    <style>
         input[type=checkbox], input[type=radio] {
             width: auto;
         }
@@ -10,211 +10,213 @@
 {% block page_content %}
     <br/>
     <section class="container">
-    <form method="post" action="{% url 'frontend:want_help' %}">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="alert alert-info">Add Details</h3>
-            </div>
-            <div class="col-md-4">
-                <label>First Name</label>
-                <div class="form-group">
-{#                    <input class="form-control" required type="text" placeholder="Enter your name.">#}
-                    {{ forms.first_name }}
-                    {% if  errors.first_name %}<p>{{ errors.first_name }}{% endif %}</p>
+        <form method="post" action="{% url 'frontend:want_help' %}">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="alert alert-info">Add Details</h3>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <label>Last Name</label>
-                <div class="form-group">
-{#                    <input class="form-control" required type="text" placeholder="Enter your name.">#}
-                    {{ forms.last_name }}
-                    {% if  errors.last_name %}<p>{{ errors.last_name }}{% endif %}</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <label>Email</label>
-                <div class="form-group">
-{#                    <input class="form-control" required type="email" placeholder="Enter your e-mail.">#}
-                    {{ forms.email }}
-                    {% if  errors.email %}<p>{{ errors.email }}{% endif %}</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <label>Phone</label>
-                <div class="form-group">
-{#                    <select name="state" class="form-control" required id="">#}
-{#                        <option>---</option>#}
-{#                        <option>MP</option>#}
-{#                        <option>Delhi</option>#}
-{#                    </select>#}
-                    {{ forms.phone }}
-                    {% if  errors.phone %}<p>{{ errors.phone }}{% endif %}</p>
-
-                </div>
-            </div>
-            <div class="col-md-4">
-                <label>State</label>
-                <div class="form-group">
-{#                    <select name="city" class="form-control" required id="">#}
-{#                        <option value="">----</option>#}
-{#                        <option value="">indore</option>#}
-{#                        <option value="">bhopal</option>#}
-{#                    </select>#}
-                    {{ forms.state }}
-                    {% if  errors.state %}<p>{{ errors.state }}{% endif %}</p>
-                </div>
-            </div>
-                 <div class="col-md-4">
-                <label>City</label>
-                <div class="form-group">
-{#                    <select name="city" class="form-control" required id="">#}
-{#                        <option value="">----</option>#}
-{#                        <option value="">indore</option>#}
-{#                        <option value="">bhopal</option>#}
-{#                    </select>#}
-                    {{ forms.city }}
-                    {% if  errors.city %}<p>{{ errors.city }}{% endif %}</p>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <label class="text-primary">Please select One or the more from </label>
-            </div>
-
-            <div class="col-md-3">
-                <div class="form-group">
-{#                    <input id="oxygen_cylinder" type="checkbox" style="width: auto;">#}
-                    {{ forms.oxygen_cylinder_supplier }}
-                    <label for="id_oxygen_cylinder_supplier">Oxygen Cylinder</label>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-{#                    <input id="plasmadoner_checkbox" type="checkbox" style="width: auto;">#}
-                    {{ forms.plasma_donor }}
-                    <label for="id_plasma_donor">Plasma Donor</label>
-                </div>
-                <div class="border-info border p-2" id="plasmadoner_body">
-
-                <div class="form-group">
-                    <label>Blood Group</label>
-{#                    <select name="blood_group" id="palasma_select" class="form-control" required id="">#}
-{#                        <option value="">----</option>#}
-{#                        <option value="">A+</option>#}
-{#                        <option value="">B+</option>#}
-{#                    </select>#}
-                    {{ forms.blood_group }}
-                </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-{#                    <input id="madical_supply_checkbox" type="checkbox" style="width: auto;">#}
-                    {{ forms.medical_supplier }}
-                    <label for="id_medical_supplier">Medical Supply</label>
-                </div>
-                <div class="border-info border p-2" id="madical_supply_body">
+                <div class="col-md-4">
+                    <label>First Name</label>
                     <div class="form-group">
-{#                        <input id="remdisvir" type="checkbox" style="width: auto;">#}
-                        {{ forms.remdisivr }}
-                        <label for="id_remdisivr">Remdisvir</label>
+                        {#                    <input class="form-control" required type="text" placeholder="Enter your name.">#}
+                        {{ forms.first_name }}
+                        {% if  errors.first_name %}<p>{{ errors.first_name }}{% endif %}</p>
                     </div>
+                </div>
+                <div class="col-md-4">
+                    <label>Last Name</label>
                     <div class="form-group">
-{#                        <input id="tocilizumab" type="checkbox" style="width: auto;">#}
-                        {{ forms.toclizumab }}
-                        <label for="id_toclizumab">Tocilizumab</label>
+                        {#                    <input class="form-control" required type="text" placeholder="Enter your name.">#}
+                        {{ forms.last_name }}
+                        {% if  errors.last_name %}<p>{{ errors.last_name }}{% endif %}</p>
                     </div>
+                </div>
+                <div class="col-md-4">
+                    <label>Email</label>
                     <div class="form-group">
-                        <input id="other" type="checkbox" style="width: auto;">
-                        <label for="other">Other</label>
-                        <div id="other_medical_body">
-{#                            <input type="text" id="medical_other_supply" class="form-control" placeholder="Specify Other">#}
-                        {{ forms.specify_other }}
+                        {#                    <input class="form-control" required type="email" placeholder="Enter your e-mail.">#}
+                        {{ forms.email }}
+                        {% if  errors.email %}<p>{{ errors.email }}{% endif %}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>Phone</label>
+                    <div class="form-group">
+                        {#                    <select name="state" class="form-control" required id="">#}
+                        {#                        <option>---</option>#}
+                        {#                        <option>MP</option>#}
+                        {#                        <option>Delhi</option>#}
+                        {#                    </select>#}
+                        {{ forms.phone }}
+                        {% if  errors.phone %}<p>{{ errors.phone }}{% endif %}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>State</label>
+                    <div class="form-group">
+                        {#                    <select name="city" class="form-control" required id="">#}
+                        {#                        <option value="">----</option>#}
+                        {#                        <option value="">indore</option>#}
+                        {#                        <option value="">bhopal</option>#}
+                        {#                    </select>#}
+                        {{ forms.state }}
+                        {% if  errors.state %}<p>{{ errors.state }}{% endif %}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>City</label>
+                    <div class="form-group">
+                        {#                    <select name="city" class="form-control" required id="">#}
+                        {#                        <option value="">----</option>#}
+                        {#                        <option value="">indore</option>#}
+                        {#                        <option value="">bhopal</option>#}
+                        {#                    </select>#}
+                        {{ forms.city }}
+                        {% if  errors.city %}<p>{{ errors.city }}{% endif %}</p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label class="text-primary">Please select One or the more from </label>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        {#                    <input id="oxygen_cylinder" type="checkbox" style="width: auto;">#}
+                        {{ forms.oxygen_cylinder_supplier }}
+                        <label for="id_oxygen_cylinder_supplier">Oxygen Cylinder</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        {#                    <input id="plasmadoner_checkbox" type="checkbox" style="width: auto;">#}
+                        {{ forms.plasma_donor }}
+                        <label for="id_plasma_donor">Plasma Donor</label>
+                    </div>
+                    <div class="border-info border p-2" id="plasmadoner_body">
+                        <div class="form-group">
+                            <label>Blood Group</label>
+                            {#                    <select name="blood_group" id="palasma_select" class="form-control" required id="">#}
+                            {#                        <option value="">----</option>#}
+                            {#                        <option value="">A+</option>#}
+                            {#                        <option value="">B+</option>#}
+                            {#                    </select>#}
+                            {{ forms.blood_group }}
                         </div>
                     </div>
+                    <br/>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-{#                    <input id="medical_help_checkbox" type="checkbox" style="width: auto;">#}
-                    {{ forms.medical_support }}
-                    <label for="id_medical_support">Medical Help</label>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        {#                    <input id="madical_supply_checkbox" type="checkbox" style="width: auto;">#}
+                        {{ forms.medical_supplier }}
+                        <label for="id_medical_supplier">Medical Supply</label>
+                    </div>
+                    <div class="border-info border p-2" id="madical_supply_body">
+                        <div class="form-group">
+                            {#                        <input id="remdisvir" type="checkbox" style="width: auto;">#}
+                            {{ forms.remdisivr }}
+                            <label for="id_remdisivr">Remdisvir</label>
+                        </div>
+                        <div class="form-group">
+                            {#                        <input id="tocilizumab" type="checkbox" style="width: auto;">#}
+                            {{ forms.toclizumab }}
+                            <label for="id_toclizumab">Tocilizumab</label>
+                        </div>
+                        <div class="form-group">
+                            <input id="other" type="checkbox" style="width: auto;">
+                            <label for="other">Other</label>
+                            <div id="other_medical_body">
+                                {#                            <input type="text" id="medical_other_supply" class="form-control" placeholder="Specify Other">#}
+                                {{ forms.specify_other }}
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
                 </div>
-                <div class="border-info border p-2 " id="medical_help_body">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        {#                    <input id="medical_help_checkbox" type="checkbox" style="width: auto;">#}
+                        {{ forms.medical_support }}
+                        <label for="id_medical_support">Medical Help</label>
+                    </div>
+                    <div class="border-info border p-2 " id="medical_help_body">
 
-                <div class="form-group">
-{#                    <input type="checkbox" id="help_doctor" style="width: auto;">#}
-                    {{ forms.doctor }}
-                    <label for="id_doctor">Doctor</label>
+                        <div class="form-group">
+                            {#                    <input type="checkbox" id="help_doctor" style="width: auto;">#}
+                            {{ forms.doctor }}
+                            <label for="id_doctor">Doctor</label>
+                        </div>
+                        <div class="form-group">
+                            {#                    <input type="checkbox" id="help_health_care" style="width: auto;">#}
+                            {{ forms.health_care_worker }}
+                            <label for="id_health_care_worker">HealthCare Worker</label>
+                        </div>
+                    </div>
+                    <br/>
                 </div>
-                <div class="form-group">
-{#                    <input type="checkbox" id="help_health_care" style="width: auto;">#}
-                    {{ forms.health_care_worker }}
-                    <label for="id_health_care_worker">HealthCare Worker</label>
+                <div class="col-md-12">
+                    <label>Additional Details</label>
+                    {{ forms.additional_details }}
+                    {#                <textarea class="form-control" rows="7">#}
+                    {#                    Additional Note#}
+                    {#                </textarea>#}
                 </div>
+                <div class="col-md-12 text-right">
+                    <input type="submit" class="btn btn-dark btn-lg" value="Submit">
                 </div>
             </div>
-            <div class="col-md-12">
-                <label>Additional Details</label>
-                {{ forms.additional_details }}
-{#                <textarea class="form-control" rows="7">#}
-{#                    Additional Note#}
-{#                </textarea>#}
-            </div>
-            <div class="col-md-12 text-right">
-                <input type="submit" class="btn btn-dark btn-lg" value="Submit">
-            </div>
-        </div>
-    </form>
+        </form>
     </section>
 {% endblock %}
 {% block extra_script %}
     <script>
-    $(function () {
-        $("#plasmadoner_body").hide();
-        $("#madical_supply_body").hide();
-        $("#other_medical_body").hide();
-        $("#medical_help_body").hide();
+        $(function () {
+            $("#plasmadoner_body").hide();
+            $("#madical_supply_body").hide();
+            $("#other_medical_body").hide();
+            $("#medical_help_body").hide();
 
-        $("#id_plasma_donor").click(function () {
-            if ($(this).is(":checked")) {
-                $("#plasmadoner_body").show();
-            } else {
-                $("#id_blood_group").val("");
-                $("#plasmadoner_body").hide();
-            }
-        });
+            $("#id_plasma_donor").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#plasmadoner_body").show();
+                } else {
+                    $("#id_blood_group").val("");
+                    $("#plasmadoner_body").hide();
+                }
+            });
 
-          $("#id_medical_supplier").click(function () {
-            if ($(this).is(":checked")) {
-                $("#madical_supply_body").show();
-            } else {
-                $('#id_remdisivr').prop('checked', false);
-                $('#id_toclizumab').prop('checked', false);
-                $('#other').prop('checked', false);
-                $("#id_specify_other").val("");
-                $("#madical_supply_body").hide();
-                $("#other_medical_body").hide();
-            }
-        });
-         $("#other").click(function () {
-            if ($(this).is(":checked")) {
-                $("#other_medical_body").show();
-            } else {
-                $("#id_specify_other").val("");
-                $("#other_medical_body").hide();
-            }
-        });
-         $("#id_medical_support").click(function () {
-            if ($(this).is(":checked")) {
-                $("#medical_help_body").show();
-            } else {
-                $('#id_id_doctor').prop('checked', false);
-                $('#id_health_care_worker').prop('checked', false);
-                $("#medical_help_body").hide();
-            }
-        });
+            $("#id_medical_supplier").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#madical_supply_body").show();
+                } else {
+                    $('#id_remdisivr').prop('checked', false);
+                    $('#id_toclizumab').prop('checked', false);
+                    $('#other').prop('checked', false);
+                    $("#id_specify_other").val("");
+                    $("#madical_supply_body").hide();
+                    $("#other_medical_body").hide();
+                }
+            });
+            $("#other").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#other_medical_body").show();
+                } else {
+                    $("#id_specify_other").val("");
+                    $("#other_medical_body").hide();
+                }
+            });
+            $("#id_medical_support").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#medical_help_body").show();
+                } else {
+                    $('#id_id_doctor').prop('checked', false);
+                    $('#id_health_care_worker').prop('checked', false);
+                    $("#medical_help_body").hide();
+                }
+            });
 
-    });
+        });
     </script>
 {% endblock %}
