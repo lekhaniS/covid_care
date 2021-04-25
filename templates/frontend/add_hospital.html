@@ -5,6 +5,9 @@
         input[type=checkbox], input[type=radio] {
             width: auto;
         }
+        .pdt-40{
+            padding-top: 40px;
+        }
     </style>
     <br/>
 
@@ -59,7 +62,7 @@
                     {% if errors.total_beds %}<span class="text-danger">{{ errors.total_beds }}</span>{% endif %}
                 </div>
                 <div class="col-md-3">
-                    <div class="form-group">
+                    <div class="form-group pdt-40">
                         {#                        <input id="oxygen_available" type="checkbox" style="width: auto">#}
                         {{ forms.oxygen_availability }}
                         <label for="oxygen_available">Oxygen Available</label>
@@ -68,7 +71,7 @@
 
                 </div>
                 <div class="col-md-3">
-                    <div class="form-group">
+                    <div class="form-group pdt-40">
                         {#                        <input id="ventilator_available" type="checkbox" style="width: auto">#}
                         {{ forms.ventilator_availability }}
                         <label for="ventilator_available">Ventilator Available</label>

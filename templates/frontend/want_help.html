@@ -1,42 +1,80 @@
 {% extends 'frontend/base/base.html' %}
 {% load static %}
+{% block extra_css %}
+   <style>
+        input[type=checkbox], input[type=radio] {
+            width: auto;
+        }
+    </style>
+{% endblock %}
 {% block page_content %}
     <br/>
     <section class="container">
+    <form method="post" action="{% url 'frontend:want_help' %}">
+        {% csrf_token %}
         <div class="row">
             <div class="col-md-12">
                 <h3 class="alert alert-info">Add Details</h3>
             </div>
-            <div class="col-md-3">
-                <label>Name</label>
+            <div class="col-md-4">
+                <label>First Name</label>
                 <div class="form-group">
-                    <input class="form-control" required type="text" placeholder="Enter your name.">
+{#                    <input class="form-control" required type="text" placeholder="Enter your name.">#}
+                    {{ forms.first_name }}
+                    {% if  errors.first_name %}<p>{{ errors.first_name }}{% endif %}</p>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
+                <label>Last Name</label>
+                <div class="form-group">
+{#                    <input class="form-control" required type="text" placeholder="Enter your name.">#}
+                    {{ forms.last_name }}
+                    {% if  errors.last_name %}<p>{{ errors.last_name }}{% endif %}</p>
+                </div>
+            </div>
+            <div class="col-md-4">
                 <label>Email</label>
                 <div class="form-group">
-                    <input class="form-control" required type="email" placeholder="Enter your e-mail.">
+{#                    <input class="form-control" required type="email" placeholder="Enter your e-mail.">#}
+                    {{ forms.email }}
+                    {% if  errors.email %}<p>{{ errors.email }}{% endif %}</p>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
+                <label>Phone</label>
+                <div class="form-group">
+{#                    <select name="state" class="form-control" required id="">#}
+{#                        <option>---</option>#}
+{#                        <option>MP</option>#}
+{#                        <option>Delhi</option>#}
+{#                    </select>#}
+                    {{ forms.phone }}
+                    {% if  errors.phone %}<p>{{ errors.phone }}{% endif %}</p>
+
+                </div>
+            </div>
+            <div class="col-md-4">
                 <label>State</label>
                 <div class="form-group">
-                    <select name="state" class="form-control" required id="">
-                        <option>---</option>
-                        <option>MP</option>
-                        <option>Delhi</option>
-                    </select>
+{#                    <select name="city" class="form-control" required id="">#}
+{#                        <option value="">----</option>#}
+{#                        <option value="">indore</option>#}
+{#                        <option value="">bhopal</option>#}
+{#                    </select>#}
+                    {{ forms.state }}
+                    {% if  errors.state %}<p>{{ errors.state }}{% endif %}</p>
                 </div>
             </div>
-            <div class="col-md-3">
+                 <div class="col-md-4">
                 <label>City</label>
                 <div class="form-group">
-                    <select name="city" class="form-control" required id="">
-                        <option value="">----</option>
-                        <option value="">indore</option>
-                        <option value="">bhopal</option>
-                    </select>
+{#                    <select name="city" class="form-control" required id="">#}
+{#                        <option value="">----</option>#}
+{#                        <option value="">indore</option>#}
+{#                        <option value="">bhopal</option>#}
+{#                    </select>#}
+                    {{ forms.city }}
+                    {% if  errors.city %}<p>{{ errors.city }}{% endif %}</p>
                 </div>
             </div>
             <div class="col-md-12">
@@ -46,77 +84,89 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <input id="oxygen_cylinder" type="checkbox" style="width: auto;">
-                    <label for="oxygen_cylinder">Oxygen Cylinder</label>
+{#                    <input id="oxygen_cylinder" type="checkbox" style="width: auto;">#}
+                    {{ forms.oxygen_cylinder_supplier }}
+                    <label for="id_oxygen_cylinder_supplier">Oxygen Cylinder</label>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input id="plasmadoner_checkbox" type="checkbox" style="width: auto;">
-                    <label for="plasmadoner_checkbox">Plasma Donor</label>
+{#                    <input id="plasmadoner_checkbox" type="checkbox" style="width: auto;">#}
+                    {{ forms.plasma_donor }}
+                    <label for="id_plasma_donor">Plasma Donor</label>
                 </div>
                 <div class="border-info border p-2" id="plasmadoner_body">
 
                 <div class="form-group">
                     <label>Blood Group</label>
-                    <select name="blood_group" id="palasma_select" class="form-control" required id="">
-                        <option value="">----</option>
-                        <option value="">A+</option>
-                        <option value="">B+</option>
-                    </select>
+{#                    <select name="blood_group" id="palasma_select" class="form-control" required id="">#}
+{#                        <option value="">----</option>#}
+{#                        <option value="">A+</option>#}
+{#                        <option value="">B+</option>#}
+{#                    </select>#}
+                    {{ forms.blood_group }}
                 </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input id="madical_supply_checkbox" type="checkbox" style="width: auto;">
-                    <label for="madical_supply_checkbox">Medical Supply</label>
+{#                    <input id="madical_supply_checkbox" type="checkbox" style="width: auto;">#}
+                    {{ forms.medical_supplier }}
+                    <label for="id_medical_supplier">Medical Supply</label>
                 </div>
                 <div class="border-info border p-2" id="madical_supply_body">
                     <div class="form-group">
-                        <input id="remdisvir" type="checkbox" style="width: auto;">
-                        <label for="remdisvir">Remdisvir</label>
+{#                        <input id="remdisvir" type="checkbox" style="width: auto;">#}
+                        {{ forms.remdisivr }}
+                        <label for="id_remdisivr">Remdisvir</label>
                     </div>
                     <div class="form-group">
-                        <input id="tocilizumab" type="checkbox" style="width: auto;">
-                        <label for="tocilizumab">Tocilizumab</label>
+{#                        <input id="tocilizumab" type="checkbox" style="width: auto;">#}
+                        {{ forms.toclizumab }}
+                        <label for="id_toclizumab">Tocilizumab</label>
                     </div>
                     <div class="form-group">
                         <input id="other" type="checkbox" style="width: auto;">
                         <label for="other">Other</label>
                         <div id="other_medical_body">
-                            <input type="text" id="medical_other_supply" class="form-control" placeholder="Specify Other">
+{#                            <input type="text" id="medical_other_supply" class="form-control" placeholder="Specify Other">#}
+                        {{ forms.specify_other }}
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input id="medical_help_checkbox" type="checkbox" style="width: auto;">
-                    <label for="medical_help_checkbox">Medical Help</label>
+{#                    <input id="medical_help_checkbox" type="checkbox" style="width: auto;">#}
+                    {{ forms.medical_support }}
+                    <label for="id_medical_support">Medical Help</label>
                 </div>
                 <div class="border-info border p-2 " id="medical_help_body">
 
                 <div class="form-group">
-                    <input type="checkbox" id="help_doctor" style="width: auto;">
-                    <label for="help_doctor">Doctor</label>
+{#                    <input type="checkbox" id="help_doctor" style="width: auto;">#}
+                    {{ forms.doctor }}
+                    <label for="id_doctor">Doctor</label>
                 </div>
                 <div class="form-group">
-                    <input type="checkbox" id="help_health_care" style="width: auto;">
-                    <label for="help_health_care">HealthCare Worker</label>
+{#                    <input type="checkbox" id="help_health_care" style="width: auto;">#}
+                    {{ forms.health_care_worker }}
+                    <label for="id_health_care_worker">HealthCare Worker</label>
                 </div>
                 </div>
             </div>
             <div class="col-md-12">
-                <label>Add the Note</label>
-                <textarea class="form-control" rows="7">
-                    Additional Note
-                </textarea>
+                <label>Additional Details</label>
+                {{ forms.additional_details }}
+{#                <textarea class="form-control" rows="7">#}
+{#                    Additional Note#}
+{#                </textarea>#}
             </div>
             <div class="col-md-12 text-right">
-                <button class="btn btn-dark btn-lg">Submit</button>
+                <input type="submit" class="btn btn-dark btn-lg" value="Submit">
             </div>
         </div>
+    </form>
     </section>
 {% endblock %}
 {% block extra_script %}
@@ -127,23 +177,23 @@
         $("#other_medical_body").hide();
         $("#medical_help_body").hide();
 
-        $("#plasmadoner_checkbox").click(function () {
+        $("#id_plasma_donor").click(function () {
             if ($(this).is(":checked")) {
                 $("#plasmadoner_body").show();
             } else {
-                $("#palasma_select").val("");
+                $("#id_blood_group").val("");
                 $("#plasmadoner_body").hide();
             }
         });
 
-          $("#madical_supply_checkbox").click(function () {
+          $("#id_medical_supplier").click(function () {
             if ($(this).is(":checked")) {
                 $("#madical_supply_body").show();
             } else {
-                $('#remdisvir').prop('checked', false);
-                $('#tocilizumab').prop('checked', false);
+                $('#id_remdisivr').prop('checked', false);
+                $('#id_toclizumab').prop('checked', false);
                 $('#other').prop('checked', false);
-                $("#medical_other_supply").val("");
+                $("#id_specify_other").val("");
                 $("#madical_supply_body").hide();
                 $("#other_medical_body").hide();
             }
@@ -152,16 +202,16 @@
             if ($(this).is(":checked")) {
                 $("#other_medical_body").show();
             } else {
-                $("#medical_other_supply").val("");
+                $("#id_specify_other").val("");
                 $("#other_medical_body").hide();
             }
         });
-         $("#medical_help_checkbox").click(function () {
+         $("#id_medical_support").click(function () {
             if ($(this).is(":checked")) {
                 $("#medical_help_body").show();
             } else {
-                $('#help_doctor').prop('checked', false);
-                $('#help_health_care').prop('checked', false);
+                $('#id_id_doctor').prop('checked', false);
+                $('#id_health_care_worker').prop('checked', false);
                 $("#medical_help_body").hide();
             }
         });

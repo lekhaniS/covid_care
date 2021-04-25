@@ -14,9 +14,13 @@ class User(models.Model):
     oxygen_cylinder_supplier = models.BooleanField(default=False)
     plasma_donor = models.BooleanField(default=False)
     medical_supplier = models.BooleanField(default=False)
+    medical_support = models.BooleanField(default=False)
+    doctor = models.BooleanField(default=False)
     health_care_worker = models.BooleanField(default=False)
     additional_details = models.CharField(max_length=1000, blank=True, null=True)
-
+    remdisivr = models.BooleanField(default=False)
+    toclizumab = models.BooleanField(default=False)
+    specify_other = models.CharField(max_length=255, blank=True, null=True)
     REQUIRED_FIELDS = []
 
     def __str__(self):

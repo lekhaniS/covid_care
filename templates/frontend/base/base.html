@@ -46,8 +46,8 @@
         <div class="container">
             <div class="mobile-menu-wrapper">
                 <div class="logo">
-                    <a href="index-2.html">
-                        <img src="{% static 'assets/images/logo/logo.png' %}" alt="Mukti">
+                    <a href="{% url 'frontend:index' %}">
+                        <img src="{% static 'assets/images/logo/logo.png' %}" alt="">
                     </a>
                 </div>
                 <div class="open-menu"><i class="icofont-navigation-menu"></i></div>
@@ -55,64 +55,12 @@
             <nav id="mobile-nav">
                 <ul class="home-nav">
                     <li class="home">
-                        <a href="index-2.html">Home</a>
-                        <ul>
-                            <li><a href="index-2.html">Home-1</a></li>
-                            <li><a href="index-3.html">Home-2</a></li>
-                        </ul>
+                        <a href="{% url 'frontend:index' %}">Home</a>
                     </li>
                 </ul>
                 <ul class="depart-nav">
                     <li class="depart">
-                        <a href="department.html">Department</a>
-                    </li>
-                </ul>
-                <ul class="doctor-nav">
-                    <li class="doctor">
-                        <a href="doctor.html">Doctors</a>
-                        <ul>
-                            <li><a href="doctor.html">Doctors</a></li>
-                            <li><a href="doctor-single.html">Doctor Single</a></li>
-                            <li><a href="doctor-timeline.html">Doctor Timeline</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="service-nav">
-                    <li class="service">
-                        <a href="service.html">Services</a>
-                        <ul>
-                            <li><a href="service.html">Services</a></li>
-                            <li><a href="service-single.html">Service Single</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="shop-nav">
-                    <li class="shop">
-                        <a href="shop.html">Shop</a>
-                        <ul>
-                            <li><a href="shop.html">Shop</a></li>
-                            <li><a href="shop-single.html">Shop Single</a></li>
-                            <li><a href="cart.html">Shop Cart</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="blog-nav">
-                    <li class="blog">
-                        <a href="blog.html">Blog</a>
-                        <ul>
-                            <li><a href="blog.html">Blog Page</a></li>
-                            <li><a href="blog-single.html">Blog Single</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="short-nav">
-                    <li class="short">
-                        <a href="contact.html">Pages</a>
-                        <ul>
-                            <li><a href="about.html">About Page</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="404.html">404 Error</a></li>
-                        </ul>
+                        <a href="{% url 'frontend:add_hospital' %}">Hospital</a>
                     </li>
                 </ul>
 
@@ -174,7 +122,14 @@
                 <div class="primary-menu">
                     <div class="menu-area">
                         <div class="row justify-content-between px-15">
+
                             <ul class="main-menu d-flex">
+                                 <li>
+                                     <a href="{% url 'frontend:index' %}">
+                                        <img src="{% static 'assets/images/logo/logo.png' %}" alt="">
+                                    </a>
+
+                                </li>
                                 <li class="active">
                                     <a href="{% url 'frontend:index' %}">Home</a>
 

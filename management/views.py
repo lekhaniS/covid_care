@@ -4,11 +4,20 @@ from . import forms as management_forms
 
 
 def home(request):
-    return render(request, 'frontend/index.html')
+    return render(request, 'frontend/index.html', )
 
 
 def WantHelp(request):
-    return render(request, 'frontend/want_help.html')
+    context = {}
+    context.update({'forms': management_forms.AddDetails})
+    if request.method == 'POST':
+        forms = management_forms.AddDetails(request.POST)
+        if forms.is_valid():
+            forms.save()
+        else:
+            context.update({'errors': forms.errors, 'forms': forms})
+            return render(request, 'frontend/want_help.html', context)
+    return render(request, 'frontend/want_help.html', context)
 
 
 def add_hospital(request):
@@ -23,6 +32,7 @@ def add_hospital(request):
         else:
             context.update({'errors': forms.errors, 'forms': forms})
     return render(request, 'frontend/add_hospital.html', context)
+
 
 def medical_list(request):
     return render(request, 'frontend/medical_list.html')
