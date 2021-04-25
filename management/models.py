@@ -12,10 +12,10 @@ class MedicalSupply(models.Model):
 
 
 class Hospitals(models.Model):
-    added_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    contact_info = models.CharField(max_length=20, null=False, blank=False)
     hospital_name = models.CharField(max_length=200)
     state = models.CharField(max_length=15, choices=States, default="MP")
-    bed_count = models.IntegerField(blank=True, null=True)
+    city = models.CharField(max_length=30, null=False, blank=False)
+    total_beds = models.IntegerField(blank=True, null=True)
     oxygen_availability = models.BooleanField(default=False)
-    oxygen_count = models.CharField(max_length=50, blank=True, null=True)
-    ventilator_availability = models.CharField(max_length=50, blank=True, null=True)
+    ventilator_availability = models.BooleanField(default=False)
