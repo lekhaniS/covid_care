@@ -1,0 +1,85 @@
+{% extends 'frontend/base/base.html' %}
+{% load static %}
+{% block page_content %}
+    <style>
+        input[type=checkbox], input[type=radio] {
+            width: auto;
+        }
+    </style>
+    <br/>
+
+    <section class="container">
+        <form action="{% url 'frontend:add_hospital' %}" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="alert alert-info">Add Hospital Details</h3>
+                </div>
+                <div class="col-md-3">
+                    <label>Contact Number</label>
+                    <div class="form-group">
+                        {#                        <input class="form-control" required type="number" placeholder="Enter your Contact Details.">#}
+                        {{ forms.contact_info }}
+                    </div>
+                    {% if errors.contact_info %}<span class="text-danger">{{ errors.contact_info }}</span>{% endif %}
+
+                </div>
+                <div class="col-md-3">
+                    <label>Hospital Name</label>
+                    <div class="form-group">
+                        {#                        <input class="form-control" required type="text" placeholder="Enter Hospital Name">#}
+                        {{ forms.hospital_name }}
+                    </div>
+                    {% if errors.hospital_name %}<span class="text-danger">{{ errors.hospital_name }}</span>{% endif %}
+                </div>
+                <div class="col-md-3">
+                    <label>State</label>
+                    <div class="form-group">
+                        {{ forms.state }}
+                    </div>
+                    {% if errors.state %}<span class="text-danger">{{ errors.state }}</span>{% endif %}
+
+                </div>
+                <div class="col-md-3">
+                    <label>City</label>
+                    <div class="form-group">
+                        {#                        <input type="text" class="form-control" placeholder="Enter City.">#}
+                        {{ forms.city }}
+
+                    </div>
+                    {% if errors.city %}<span class="text-danger">{{ errors.city }}</span>{% endif %}
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Total Beds</label>
+                        {#                        <input type="number" class="form-control" placeholder="number of beds.">#}
+                        {{ forms.total_beds }}
+                    </div>
+                    {% if errors.total_beds %}<span class="text-danger">{{ errors.total_beds }}</span>{% endif %}
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        {#                        <input id="oxygen_available" type="checkbox" style="width: auto">#}
+                        {{ forms.oxygen_availability }}
+                        <label for="oxygen_available">Oxygen Available</label>
+                    </div>
+                    {% if errors.oxygen_availability %}<span class="text-danger">{{ errors.oxygen_availability }}</span>{% endif %}
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        {#                        <input id="ventilator_available" type="checkbox" style="width: auto">#}
+                        {{ forms.ventilator_availability }}
+                        <label for="ventilator_available">Ventilator Available</label>
+                    </div>
+                    {% if errors.ventilator_availability %}<span class="text-danger">{{ errors.ventilator_availability }}</span>{% endif %}
+
+                </div>
+                <div class="col-md-12 text-right">
+                    <input type="submit" class="btn btn-dark btn-lg" value="Submit">
+                </div>
+            </div>
+        </form>
+    </section>
+{% endblock %}

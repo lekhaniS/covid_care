@@ -1,0 +1,27 @@
+    {% extends 'frontend/base/base.html' %}
+{% load static %}
+{% block page_content %}
+    <!-- ==========Banner Section Start Here========== -->
+    <section class="banner-section" style="background-image: url({% static 'assets/images/banner/1.jpg' %});">
+        <div class="container">
+            <div class="banner-wrapper">
+                <div class="banner-content">
+                    <h2 class="wow fadeInDown" data-wow-duration="2s" data-wow-delay=".1s">Best Medical
+                        Clinic
+                    </h2>
+                    <h1 class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay=".1s"><b>Bringing
+                            Health</b> To Life For The Whole Family...</h1>
+                     <a href="{% url 'frontend:want_help' %}" class="lab-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                        <span>Want to help<i class="icofont-rounded-double-right"></i></span>
+                    </a>
+                    <a href="#" class="lab-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                        <span> Seeking for help <i class="icofont-rounded-double-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========Banner Section Ends Here========== -->
+
+
+    {% endblock %}

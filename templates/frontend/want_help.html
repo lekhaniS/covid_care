@@ -1,0 +1,121 @@
+{% extends 'frontend/base/base.html' %}
+{% load static %}
+{% block page_content %}
+    <br/>
+    <section class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="alert alert-info">Add Details</h3>
+            </div>
+            <div class="col-md-3">
+                <label>Name</label>
+                <div class="form-group">
+                    <input class="form-control" required type="text" placeholder="Enter your name.">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label>Email</label>
+                <div class="form-group">
+                    <input class="form-control" required type="email" placeholder="Enter your e-mail.">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label>State</label>
+                <div class="form-group">
+                    <select name="state" class="form-control" required id="">
+                        <option>---</option>
+                        <option>MP</option>
+                        <option>Delhi</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label>City</label>
+                <div class="form-group">
+                    <select name="city" class="form-control" required id="">
+                        <option value="">----</option>
+                        <option value="">indore</option>
+                        <option value="">bhopal</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="text-primary">Corona Warrior/ Help Provider (User will be able to select multiple
+                    options)</label>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input id="oxygen_cylinder" type="checkbox" style="width: auto;">
+                    <label for="oxygen_cylinder">Oxygen Cylinder</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input id="palsma_donor" type="checkbox" style="width: auto;">
+                    <label for="palsma_donor">Plasma Donor</label>
+                </div>
+                <div class="border-info border p-2">
+
+                <div class="form-group">
+                    <label>Blood Group</label>
+                    <select name="blood_group" class="form-control" required id="">
+                        <option value="">----</option>
+                        <option value="">A+</option>
+                        <option value="">B+</option>
+                    </select>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input id="madical_supply" type="checkbox" style="width: auto;">
+                    <label for="madical_supply">Medical Supply</label>
+                </div>
+                <div class="border-info border p-2">
+                    <div class="form-group">
+                        <input id="remdisvir" type="checkbox" style="width: auto;">
+                        <label for="remdisvir">Remdisvir</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="tocilizumab" type="checkbox" style="width: auto;">
+                        <label for="tocilizumab">Tocilizumab</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="other" type="checkbox" style="width: auto;">
+                        <label for="other">Other</label>
+                        <div>
+                            <input type="text" class="form-control" placeholder="Specify Other">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input id="hospital_bed" type="checkbox" style="width: auto;">
+                    <label for="hospital_bed">Medical Help</label>
+                </div>
+                <div class="border-info border p-2">
+
+                <div class="form-group">
+                    <input type="checkbox" id="doctor" style="width: auto;">
+                    <label for="doctor">Doctor</label>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="add_note" style="width: auto;">
+                    <label for="add_note">HealthCare Worker</label>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label>Add the Note</label>
+                <textarea class="form-control" rows="7">
+                    Additional Note
+                </textarea>
+            </div>
+            <div class="col-md-12 text-right">
+                <button class="btn btn-dark btn-lg">Submit</button>
+            </div>
+        </div>
+    </section>
+{% endblock %}
