@@ -52,14 +52,14 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input id="palsma_donor" type="checkbox" style="width: auto;">
-                    <label for="palsma_donor">Plasma Donor</label>
+                    <input id="plasmadoner_checkbox" type="checkbox" style="width: auto;">
+                    <label for="plasmadoner_checkbox">Plasma Donor</label>
                 </div>
-                <div class="border-info border p-2">
+                <div class="border-info border p-2" id="plasmadoner_body">
 
                 <div class="form-group">
                     <label>Blood Group</label>
-                    <select name="blood_group" class="form-control" required id="">
+                    <select name="blood_group" id="palasma_select" class="form-control" required id="">
                         <option value="">----</option>
                         <option value="">A+</option>
                         <option value="">B+</option>
@@ -69,10 +69,10 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input id="madical_supply" type="checkbox" style="width: auto;">
-                    <label for="madical_supply">Medical Supply</label>
+                    <input id="madical_supply_checkbox" type="checkbox" style="width: auto;">
+                    <label for="madical_supply_checkbox">Medical Supply</label>
                 </div>
-                <div class="border-info border p-2">
+                <div class="border-info border p-2" id="madical_supply_body">
                     <div class="form-group">
                         <input id="remdisvir" type="checkbox" style="width: auto;">
                         <label for="remdisvir">Remdisvir</label>
@@ -84,26 +84,26 @@
                     <div class="form-group">
                         <input id="other" type="checkbox" style="width: auto;">
                         <label for="other">Other</label>
-                        <div>
-                            <input type="text" class="form-control" placeholder="Specify Other">
+                        <div id="other_medical_body">
+                            <input type="text" id="medical_other_supply" class="form-control" placeholder="Specify Other">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input id="hospital_bed" type="checkbox" style="width: auto;">
-                    <label for="hospital_bed">Medical Help</label>
+                    <input id="medical_help_checkbox" type="checkbox" style="width: auto;">
+                    <label for="medical_help_checkbox">Medical Help</label>
                 </div>
-                <div class="border-info border p-2">
+                <div class="border-info border p-2 " id="medical_help_body">
 
                 <div class="form-group">
-                    <input type="checkbox" id="doctor" style="width: auto;">
-                    <label for="doctor">Doctor</label>
+                    <input type="checkbox" id="help_doctor" style="width: auto;">
+                    <label for="help_doctor">Doctor</label>
                 </div>
                 <div class="form-group">
-                    <input type="checkbox" id="add_note" style="width: auto;">
-                    <label for="add_note">HealthCare Worker</label>
+                    <input type="checkbox" id="help_health_care" style="width: auto;">
+                    <label for="help_health_care">HealthCare Worker</label>
                 </div>
                 </div>
             </div>
@@ -118,4 +118,54 @@
             </div>
         </div>
     </section>
+{% endblock %}
+{% block extra_script %}
+    <script>
+    $(function () {
+        $("#plasmadoner_body").hide();
+        $("#madical_supply_body").hide();
+        $("#other_medical_body").hide();
+        $("#medical_help_body").hide();
+
+        $("#plasmadoner_checkbox").click(function () {
+            if ($(this).is(":checked")) {
+                $("#plasmadoner_body").show();
+            } else {
+                $("#palasma_select").val("");
+                $("#plasmadoner_body").hide();
+            }
+        });
+
+          $("#madical_supply_checkbox").click(function () {
+            if ($(this).is(":checked")) {
+                $("#madical_supply_body").show();
+            } else {
+                $('#remdisvir').prop('checked', false);
+                $('#tocilizumab').prop('checked', false);
+                $('#other').prop('checked', false);
+                $("#medical_other_supply").val("");
+                $("#madical_supply_body").hide();
+                $("#other_medical_body").hide();
+            }
+        });
+         $("#other").click(function () {
+            if ($(this).is(":checked")) {
+                $("#other_medical_body").show();
+            } else {
+                $("#medical_other_supply").val("");
+                $("#other_medical_body").hide();
+            }
+        });
+         $("#medical_help_checkbox").click(function () {
+            if ($(this).is(":checked")) {
+                $("#medical_help_body").show();
+            } else {
+                $('#help_doctor').prop('checked', false);
+                $('#help_health_care').prop('checked', false);
+                $("#medical_help_body").hide();
+            }
+        });
+
+    });
+    </script>
 {% endblock %}
