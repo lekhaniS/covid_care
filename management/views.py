@@ -23,3 +23,6 @@ def add_hospital(request):
         else:
             context.update({'errors': forms.errors, 'forms': forms})
     return render(request, 'frontend/add_hospital.html', context)
+
+def medical_list(request):
+    return render(request, 'frontend/medical_list.html')
