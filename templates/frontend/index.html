@@ -1,8 +1,16 @@
     {% extends 'frontend/base/base.html' %}
 {% load static %}
+{% block extra_css %}
+    <style>
+        .banner-section .banner-wrapper .banner-content a:last-child{
+            margin-left: 20px;
+        }
+    </style>
+{% endblock %}
 {% block page_content %}
     <!-- ==========Banner Section Start Here========== -->
-    <section class="banner-section" style="background-image: url({% static 'assets/images/banner/1.jpg' %});">
+    <section class="banner-section" style="background: linear-gradient(0deg, rgba(0,0,0,1), rgba(0,0,0,0.3)), url({% static 'assets/images/banner/1.jpg' %});
+    background-size: cover;">
         <div class="container">
             <div class="banner-wrapper">
                 <div class="banner-content">
