@@ -145,7 +145,7 @@
                     <div class="form-group">
                         {#                    <input class="form-control" required type="text" placeholder="Enter your name.">#}
                         {{ forms.first_name }}
-                        {% if  errors.first_name %}<p>{{ errors.first_name }}{% endif %}</p>
+                        {% if  errors.first_name %}<p class="text-danger">{{ errors.first_name }}{% endif %}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -153,7 +153,7 @@
                     <div class="form-group">
                         {#                    <input class="form-control" required type="text" placeholder="Enter your name.">#}
                         {{ forms.last_name }}
-                        {% if  errors.last_name %}<p>{{ errors.last_name }}{% endif %}</p>
+                        {% if  errors.last_name %}<p  class="text-danger">{{ errors.last_name }}{% endif %}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -161,7 +161,7 @@
                     <div class="form-group">
                         {#                    <input class="form-control" required type="email" placeholder="Enter your e-mail.">#}
                         {{ forms.email }}
-                        {% if  errors.email %}<p>{{ errors.email }}{% endif %}</p>
+                        {% if  errors.email %}<p class="text-danger">{{ errors.email }}{% endif %}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -173,7 +173,7 @@
                         {#                        <option>Delhi</option>#}
                         {#                    </select>#}
                         {{ forms.phone }}
-                        {% if  errors.phone %}<p>{{ errors.phone }}{% endif %}</p>
+                        {% if  errors.phone %}<p class="text-danger">{{ errors.phone }}{% endif %}</p>
 
                     </div>
                 </div>
@@ -186,7 +186,7 @@
                         {#                        <option value="">bhopal</option>#}
                         {#                    </select>#}
                         {{ forms.state }}
-                        {% if  errors.state %}<p>{{ errors.state }}{% endif %}</p>
+                        {% if  errors.state %}<p class="text-danger">{{ errors.state }}{% endif %}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -198,7 +198,7 @@
                         {#                        <option value="">bhopal</option>#}
                         {#                    </select>#}
                         {{ forms.city }}
-                        {% if  errors.city %}<p>{{ errors.city }}{% endif %}</p>
+                        {% if  errors.city %}<p class="text-danger">{{ errors.city }}{% endif %}</p>
                     </div>
                 </div>
                 <div class="col-md-12">
