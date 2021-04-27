@@ -14,7 +14,7 @@
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
             rel="stylesheet">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/logo/logo2.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/logo/logo.png' %}">
     <!-- Other css -->
     <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
@@ -185,8 +185,7 @@
             </div>
             <div class="footer-bottom">
                 <div class="copyright text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                        <span>Copyright &copy; 2021 <a href="index-2.html">Mukti</a>. Designed by <a
-                                href="https://themeforest.net/user/labartisan">LabArtisan</a></span>
+                    <span>Copyright &copy; 2021 <a href="{% url 'frontend:index' %}">HelpingHand</a></span>.
                 </div>
             </div>
         </div>
