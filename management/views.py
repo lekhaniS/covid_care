@@ -15,6 +15,8 @@ def WantHelp(request):
         forms = management_forms.AddDetails(request.POST)
         if forms.is_valid():
             forms.save()
+            context.update({'forms': management_forms.AddDetails,  'success': 'true'})
+            return render(request, 'frontend/want_help.html', context)
         else:
             context.update({'errors': forms.errors, 'forms': forms})
             return render(request, 'frontend/want_help.html', context)
@@ -30,6 +32,8 @@ def add_hospital(request):
         forms = management_forms.AddHospital(request.POST)
         if forms.is_valid():
             forms.save()
+            context.update({'forms': form, 'success': 'true'})
+            return render(request, 'frontend/add_hospital.html', context)
         else:
             context.update({'errors': forms.errors, 'forms': forms})
     return render(request, 'frontend/add_hospital.html', context)
