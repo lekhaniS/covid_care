@@ -9,7 +9,7 @@ class User(models.Model):
     email = models.EmailField(null=True, blank=True, unique=True)
     phone = models.CharField(max_length=255, unique=True, blank=False, null=False)
     state = models.CharField(max_length=15, choices=States, default="MP")
-    city = models.CharField(max_length=255, blank=False, null=False)
+    city = models.CharField(max_length=255, choices=BloodGroup, blank=False, null=False)
     blood_group = models.CharField(max_length=3, blank=True, null=True)
     oxygen_cylinder_supplier = models.BooleanField(default=False)
     plasma_donor = models.BooleanField(default=False)

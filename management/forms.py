@@ -60,11 +60,8 @@ class AddDetails(ModelForm):
         'type': 'text',
         'placeholder': 'Enter your city.'
     })), required=False)
-    blood_group = forms.CharField(widget=(forms.TextInput(attrs={
-        'class': 'form-control',
-        'type': 'text',
-        'placeholder': 'Enter Blood Group.'
-    })), required=False)
+    blood_group = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control'}),
+                                    choices=BloodGroup, initial='B+', required=False)
     specify_other = forms.CharField(widget=(forms.TextInput(attrs={
         'class': 'form-control',
         'type': 'text',

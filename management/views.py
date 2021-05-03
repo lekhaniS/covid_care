@@ -50,11 +50,16 @@ def user_filter(request):
     if request.method == 'POST':
         context = {}
         lists = None
+
         select_option1 = request.POST.get('select_option1')
-        if int(select_option1) == 1:
+        if int(select_option1) == 0:
             lists = user_model.User.objects.filter(oxygen_cylinder_supplier=True)
-        if int(select_option1) == 2:
+        if int(select_option1) == 1:
             lists = user_model.User.objects.filter(plasma_donor=True, blood_group=request.POST.get('blood_group'))
+        if int(select_option1) == 2:
+            lists = user_model.User.objects.filter(medical_supplier=True)
+        if int(select_option1) == 3:
+            lists = user_model.User.objects.filter(medical_support=True)
         context.update({'lists': lists})
         return render(request, 'frontend/medical_list.html', context)
     else:
