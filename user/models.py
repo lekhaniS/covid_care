@@ -6,7 +6,7 @@ from user.constants import *
 class User(models.Model):
     first_name = models.CharField(max_length=255, blank=False, null=False)
     last_name = models.CharField(max_length=255, blank=False, null=False)
-    email = models.EmailField(null=True, blank=True, unique=True)
+    email = models.EmailField(null=True, blank=True)
     phone = models.CharField(max_length=255, unique=True, blank=False, null=False)
     state = models.CharField(max_length=15, choices=States, default="MP")
     city = models.CharField(max_length=255, blank=False, null=False)
