@@ -89,7 +89,7 @@ def filter_list(request, pk):
 def blood_group(request, pk):
     context = {}
     if pk is not None:
-        lists = user_model.User.objects.filter(blood_group=str(pk)).exclude(blood_group='')
+        lists = user_model.User.objects.filter(plasma_donor=True, blood_group=str(pk)).exclude(blood_group='')
         context.update({'lists': lists, 'key': 1, 'plasma_key': str(pk)})
         return render(request, 'frontend/medical_list.html', context)
     return redirect('frontend:medical_list')
