@@ -8,4 +8,6 @@ urlpatterns = [
     path('add/hospital/', views.add_hospital, name='add_hospital'),
     path('list/', views.medical_list, name='medical_list'),
     path('filter/', views.user_filter, name='user_filter'),
+    path('filter-list/<str:pk>', views.filter_list, name='filter_list'),
+    path('plasma/<str:pk>', views.blood_group, name='plasma'),
 ]
