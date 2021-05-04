@@ -5,9 +5,9 @@ from user.constants import *
 
 class User(models.Model):
     first_name = models.CharField(max_length=255, blank=False, null=False)
-    last_name = models.CharField(max_length=255, blank=False, null=False)
+    last_name = models.CharField(max_length=255, blank=True, null=True)
     email = models.EmailField(null=True, blank=True)
-    phone = models.CharField(max_length=255, unique=True, blank=False, null=False)
+    phone = models.CharField(max_length=255, blank=False, null=False)
     state = models.CharField(max_length=15, choices=States, default="MP")
     city = models.CharField(max_length=255, blank=False, null=False)
     blood_group = models.CharField(max_length=3, choices=BloodGroup, blank=True, null=True)
@@ -28,3 +28,6 @@ class User(models.Model):
 
     def __str__(self):
         return self.email
+
+    class Meta:
+        unique_together = ('email', 'phone',)

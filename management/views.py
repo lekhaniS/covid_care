@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import forms as management_forms
 from user import models as user_model
+from django.db.models import Q
 
 
 def home(request):
@@ -15,7 +16,7 @@ def WantHelp(request):
         forms = management_forms.AddDetails(request.POST)
         if forms.is_valid():
             forms.save()
-            context.update({'forms': management_forms.AddDetails,  'success': 'true'})
+            context.update({'forms': management_forms.AddDetails, 'success': 'true'})
             return render(request, 'frontend/want_help.html', context)
         else:
             context.update({'errors': forms.errors, 'forms': forms})
@@ -64,3 +65,31 @@ def user_filter(request):
         return render(request, 'frontend/medical_list.html', context)
     else:
         return redirect('frontend:medical_list')
+
+
+def filter_list(request, pk):
+    context = {}
+    if pk is not None:
+        if int(pk) == 3:
+            lists = user_model.User.objects.filter(medical_support=True)
+            context.update({'lists': lists, 'key': 3})
+        elif int(pk) == 2:
+            lists = user_model.User.objects.filter(medical_supplier=True)
+            context.update({'lists': lists, 'key': 2})
+        elif int(pk) == 0:
+            lists = user_model.User.objects.filter(oxygen_cylinder_supplier=True)
+            context.update({'lists': lists, 'key': 0})
+        elif int(pk) == 1:
+            lists = user_model.User.objects.filter(plasma_donor=True)
+            context.update({'lists': lists, 'key': 1})
+        return render(request, 'frontend/medical_list.html', context)
+    return redirect('frontend:medical_list')
+
+
+def blood_group(request, pk):
+    context = {}
+    if pk is not None:
+        lists = user_model.User.objects.filter(blood_group=str(pk)).exclude(blood_group='')
+        context.update({'lists': lists, 'key': 1, 'plasma_key': str(pk)})
+        return render(request, 'frontend/medical_list.html', context)
+    return redirect('frontend:medical_list')
