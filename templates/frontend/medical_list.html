@@ -71,7 +71,7 @@
 
                         <td>{% if list.email %}{{ list.email }}{% else %}Not Available{% endif %}</td>
                         <td>{% if list.phone %}{{ list.phone }}{% else %}Not Available{% endif %}</td>
-                        <td>{{ list.state }}</td>
+                        <td>{{ list.get_state_display }}</td>
                         <td>{% if list.city %}{{ list.city }}{% else %}Not Available{% endif %}</td>
 
                         {% if key == 3 %}
