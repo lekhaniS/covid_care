@@ -3,6 +3,10 @@
 
 {% block page_content %}
 
-    {{ data }}
+    {% if data %}
+        {% for report in data %}
+            {{ report.activeCases }}
+        {% endfor %}
+    {% endif %}
 
 {% endblock %}

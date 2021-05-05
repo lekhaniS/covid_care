@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import forms as management_forms
 from user import models as user_model
+from .models import Hospitals
 from .news_api import news_api
+from django.db.models import Q
 
 
 def home(request):
@@ -31,6 +33,7 @@ def add_hospital(request):
 
     if request.method == 'POST':
         forms = management_forms.AddHospital(request.POST)
+        print(forms)
         if forms.is_valid():
             forms.save()
             context.update({'forms': form, 'success': 'true'})
@@ -71,9 +74,47 @@ def news_view(request):
     context = {}
     news_data = news_api()
     data = news_data.json()
-    for key in data:
-        context.update({'data': key})
-    # context.update({'data': data})
-        print(key)
-
+    for key, value in data.items():
+        context.update({key: value})
+        # context.update(
+        #     {
+        #         'activeCases': data['activeCases'], 'activeCasesNew': data['activeCasesNew'],
+        #         'recovered': data['recovered'], 'recoveredNew': data['recoveredNew'],
+        #         'totalCases': data['totalCases'], 'deathsNew': data['deathsNew'],
+        #     }
+        # )
+        context.update({'data': data})
+    print('data', context)
     return render(request, 'frontend/news.html', context)
+
+
+def filter_list(request, pk):
+    context = {}
+    if pk is not None:
+        if int(pk) == 3:
+            lists = user_model.User.objects.filter(medical_support=True)
+            context.update({'lists': lists, 'key': 3})
+        elif int(pk) == 2:
+            lists = user_model.User.objects.filter(medical_supplier=True)
+            context.update({'lists': lists, 'key': 2})
+        elif int(pk) == 0:
+            lists = user_model.User.objects.filter(oxygen_cylinder_supplier=True)
+            context.update({'lists': lists, 'key': 0})
+        elif int(pk) == 1:
+            lists = user_model.User.objects.filter(plasma_donor=True)
+            context.update({'lists': lists, 'key': 1})
+        elif int(pk) == 4:
+            lists = Hospitals.objects.all()
+            print(pk, lists)
+            context.update({'lists': lists, 'key': 4})
+        return render(request, 'frontend/medical_list.html', context)
+    return redirect('frontend:medical_list')
+
+
+def blood_group(request, pk):
+    context = {}
+    if pk is not None:
+        lists = user_model.User.objects.filter(plasma_donor=True, blood_group=str(pk)).exclude(blood_group='')
+        context.update({'lists': lists, 'key': 1, 'plasma_key': str(pk)})
+        return render(request, 'frontend/medical_list.html', context)
+    return redirect('frontend:medical_list')
