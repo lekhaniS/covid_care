@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import forms as management_forms
 from user import models as user_model
+from .news_api import news_api
 
 
 def home(request):
@@ -15,7 +16,7 @@ def WantHelp(request):
         forms = management_forms.AddDetails(request.POST)
         if forms.is_valid():
             forms.save()
-            context.update({'forms': management_forms.AddDetails,  'success': 'true'})
+            context.update({'forms': management_forms.AddDetails, 'success': 'true'})
             return render(request, 'frontend/want_help.html', context)
         else:
             context.update({'errors': forms.errors, 'forms': forms})
@@ -64,3 +65,15 @@ def user_filter(request):
         return render(request, 'frontend/medical_list.html', context)
     else:
         return redirect('frontend:medical_list')
+
+
+def news_view(request):
+    context = {}
+    news_data = news_api()
+    data = news_data.json()
+    for key in data:
+        context.update({'data': key})
+    # context.update({'data': data})
+        print(key)
+
+    return render(request, 'frontend/news.html', context)
