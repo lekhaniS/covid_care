@@ -9,7 +9,7 @@ class AddHospital(ModelForm):
     contact_info = forms.CharField(widget=(forms.TextInput(attrs={
         'class': 'form-control',
         'type': 'number',
-        'placeholder': 'Enter your Contact Details.'
+        'placeholder': 'Hospital Contact Number.'
     })), required=True)
     hospital_name = forms.CharField(widget=(forms.TextInput(attrs={
         'class': 'form-control',

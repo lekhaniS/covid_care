@@ -114,7 +114,7 @@
             margin: 100px auto;
         }
     </style>
-    <br/>
+
     <!-- Modal HTML -->
     <div id="success_modal" data-backdrop="static" data-keyboard="false" class="modal fade">
         <div class="modal-dialog modal-confirm">
@@ -135,82 +135,100 @@
             </div>
         </div>
     </div>
-
-    <section class="container">
-        <form action="{% url 'frontend:add_hospital' %}" method="post">
-            {% csrf_token %}
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="alert alert-info">Add Hospital Details</h3>
-                </div>
-                <div class="col-md-3">
-                    <label>Contact Number</label>
-                    <div class="form-group">
-                        {#                        <input class="form-control" required type="number" placeholder="Enter your Contact Details.">#}
-                        {{ forms.contact_info }}
+    <!-- ==========Page Header Section Start Here========== -->
+    <section class="page-header-section service-title style-1"
+             style="background-image: url({% static 'assets/images/pageheader/pageheader.jpg' %}); width: 100%;">
+        <div class="page-header-content">
+            <div class="container">
+                <div class="page-header-content-inner">
+                    <div class="page-title">
+                        <h2>Please Fill the Availability Form</h2>
                     </div>
-                    {% if errors.contact_info %}<span class="text-danger">{{ errors.contact_info }}</span>{% endif %}
-
-                </div>
-                <div class="col-md-3">
-                    <label>Hospital Name</label>
-                    <div class="form-group">
-                        {#                        <input class="form-control" required type="text" placeholder="Enter Hospital Name">#}
-                        {{ forms.hospital_name }}
-                    </div>
-                    {% if errors.hospital_name %}<span class="text-danger">{{ errors.hospital_name }}</span>{% endif %}
-                </div>
-                <div class="col-md-3">
-                    <label>State</label>
-                    <div class="form-group">
-                        {{ forms.state }}
-                    </div>
-                    {% if errors.state %}<span class="text-danger">{{ errors.state }}</span>{% endif %}
-
-                </div>
-                <div class="col-md-3">
-                    <label>City</label>
-                    <div class="form-group">
-                        {#                        <input type="text" class="form-control" placeholder="Enter City.">#}
-                        {{ forms.city }}
-
-                    </div>
-                    {% if errors.city %}<span class="text-danger">{{ errors.city }}</span>{% endif %}
-                </div>
-
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="id_total_beds">Total Beds</label>
-                        {#                        <input type="number" class="form-control" placeholder="number of beds.">#}
-                        {{ forms.total_beds }}
-                    </div>
-                    {% if errors.total_beds %}<span class="text-danger">{{ errors.total_beds }}</span>{% endif %}
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group pdt-40">
-                        {#                        <input id="oxygen_available" type="checkbox" style="width: auto">#}
-                        {{ forms.oxygen_availability }}
-                        <label for="id_oxygen_availability">Oxygen Available</label>
-                    </div>
-                    {% if errors.oxygen_availability %}
-                        <span class="text-danger">{{ errors.oxygen_availability }}</span>{% endif %}
-
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group pdt-40">
-                        {#                        <input id="ventilator_available" type="checkbox" style="width: auto">#}
-                        {{ forms.ventilator_availability }}
-                        <label for="ventilator_available">Ventilator Available</label>
-                    </div>
-                    {% if errors.ventilator_availability %}
-                        <span class="text-danger">{{ errors.ventilator_availability }}</span>{% endif %}
-
-                </div>
-                <div class="col-md-12 text-right">
-                    <input type="submit" class="btn btn-dark btn-lg" value="Submit">
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'frontend:index' %}">Home</a></li>
+                        <li class="active">Add Details</li>
+                    </ol>
                 </div>
             </div>
-        </form>
+        </div>
+    </section>
+    <!-- ==========Page Header Section Ends Here========== -->
+    <section class="contact-us pt-5">
+        <div class="container">
+            <div class="section-wrapper">
+                <form action="{% url 'frontend:add_hospital' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <label>Contact Number</label>
+                            <div class="form-group">
+                                {{ forms.contact_info }}
+                            </div>
+                            {% if errors.contact_info %}
+                                <span class="text-danger">{{ errors.contact_info }}</span>{% endif %}
+
+                        </div>
+                        <div class="col-md-3">
+                            <label>Hospital Name</label>
+                            <div class="form-group">
+                                {#                        <input class="form-control" required type="text" placeholder="Enter Hospital Name">#}
+                                {{ forms.hospital_name }}
+                            </div>
+                            {% if errors.hospital_name %}
+                                <span class="text-danger">{{ errors.hospital_name }}</span>{% endif %}
+                        </div>
+                        <div class="col-md-3">
+                            <label>State</label>
+                            <div class="form-group">
+                                {{ forms.state }}
+                            </div>
+                            {% if errors.state %}<span class="text-danger">{{ errors.state }}</span>{% endif %}
+
+                        </div>
+                        <div class="col-md-3">
+                            <label>City</label>
+                            <div class="form-group">
+                                {{ forms.city }}
+
+                            </div>
+                            {% if errors.city %}<span class="text-danger">{{ errors.city }}</span>{% endif %}
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="id_total_beds">Total Beds</label>
+                                {{ forms.total_beds }}
+                            </div>
+                            {% if errors.total_beds %}
+                                <span class="text-danger">{{ errors.total_beds }}</span>{% endif %}
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group pdt-40">
+                                {{ forms.oxygen_availability }}
+                                <label for="id_oxygen_availability">Oxygen Available</label>
+                            </div>
+                            {% if errors.oxygen_availability %}
+                                <span class="text-danger">{{ errors.oxygen_availability }}</span>{% endif %}
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group pdt-40">
+                                {{ forms.ventilator_availability }}
+                                <label for="ventilator_available">Ventilator Available</label>
+                            </div>
+                            {% if errors.ventilator_availability %}
+                                <span class="text-danger">{{ errors.ventilator_availability }}</span>{% endif %}
+
+                        </div>
+                        <div class="col-md-12 text-right">
+                             <button class="lab-btn" type="submit"><span>Submit <i
+                                            class="icofont-double-right"></i></span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
 {% endblock %}
 {% block extra_script %}

@@ -1,0 +1,102 @@
+{% extends 'frontend/base/base.html' %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+{% block page_content %}
+    <!-- ==========Page Header Section Start Here========== -->
+    <section class="page-header-section service-title style-1"
+             style="background-image: url({% static 'assets/images/pageheader/pageheader.jpg' %}); width: 100%;">
+        <div class="page-header-content">
+            <div class="container">
+                <div class="page-header-content-inner">
+                    <div class="page-title">
+                        <h2>About Us</h2>
+                    </div>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'frontend:index' %}">Home</a></li>
+                        <li class="active">Your Helping Hands</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- ==========Feature Section Start Here========== -->
+    <section class="feature-section padding-tb bg-color">
+        <div class="container">
+            <div class="feature-section-wrapper">
+                <div class="section-header wow fadeInUp" data-wow-delay="" data-wow-duration="1s">
+                    <h2 class="text-dark"><span>We Offer Specialized</span> </h2>
+                    <h2 class="text-dark"> Orthopedics To Meet Your Needs</h2>
+                </div>
+                <div class="section-content">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                            <div class="lab-item feature-item wow fadeInLeft" data-wow-delay=".2s"
+                                data-wow-duration="1s">
+                                <div class="lab-inner">
+                                    <div class="lab-thumb">
+                                        <img src="{% static 'assets/images/feature/1.png' %}" alt="feature img">
+                                    </div>
+                                    <div class="lab-content">
+                                        <h4 class="text-dark">Medical Treatment</h4>
+                                        <p>Lorem ipsum dolor sit amete consectetur adipisicing elite. vlote optio animi?
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                            <div class="lab-item feature-item wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s">
+                                <div class="lab-inner">
+                                    <div class="lab-thumb">
+                                        <img src="{% static 'assets/images/feature/2.png' %}" alt="feature img">
+                                    </div>
+                                    <div class="lab-content">
+                                        <h4 class="text-dark">Emergency Help</h4>
+                                        <p>Lorem ipsum dolor sit amete consectetur adipisicing elite. vlote optio animi?
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                            <div class="lab-item feature-item wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s">
+                                <div class="lab-inner">
+                                    <div class="lab-thumb">
+                                        <img src="{% static 'assets/images/feature/3.png' %}" alt="feature img">
+                                    </div>
+                                    <div class="lab-content">
+                                        <h4 class="text-dark">Medical Professionals</h4>
+                                        <p>Lorem ipsum dolor sit amete consectetur adipisicing elite. vlote optio animi?
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                            <div class="lab-item feature-item wow fadeInRight" data-wow-delay=".2s"
+                                data-wow-duration="1s">
+                                <div class="lab-inner">
+                                    <div class="lab-thumb">
+                                        <img src="{% static 'assets/images/feature/4.png' %}" alt="feature img">
+                                    </div>
+                                    <div class="lab-content">
+                                        <h4 class="text-dark">Qualified Doctors</h4>
+                                        <p>Lorem ipsum dolor sit amete consectetur adipisicing elite. vlote optio animi?
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========Feature Section Ends Here========== -->
+
+
+{% endblock %}

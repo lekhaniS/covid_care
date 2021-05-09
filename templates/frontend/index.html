@@ -1,26 +1,29 @@
-    {% extends 'frontend/base/base.html' %}
+{% extends 'frontend/base/base.html' %}
 {% load static %}
 {% block extra_css %}
     <style>
-        .banner-section .banner-wrapper .banner-content a:last-child{
+        .banner-section .banner-wrapper .banner-content a:last-child {
             margin-left: 20px;
         }
     </style>
 {% endblock %}
 {% block page_content %}
     <!-- ==========Banner Section Start Here========== -->
-    <section class="banner-section" style="background: linear-gradient(0deg, rgba(0,0,0,1), rgba(0,0,0,0.3)), url({% static 'assets/images/banner/1.jpg' %});
-    background-size: cover;">
+    <section class="banner-section"
+             style="background: linear-gradient(0deg, rgba(0,0,0,1), rgba(0,0,0,0.3)), url({% static 'assets/images/banner/1.jpg' %});
+                     background-size: cover;">
         <div class="container">
             <div class="banner-wrapper">
                 <div class="banner-content">
                     <h2 class="wow fadeInDown" data-wow-duration="2s" data-wow-delay=".1s">Let's be a</h2>
                     <h1 class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay=".1s"><b>Helping
-                            Hand</b> To Help Someone In Need...</h1>
-                     <a href="{% url 'frontend:want_help' %}" class="lab-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                        Hand</b> To Help Someone In Need...</h1>
+                    <a href="{% url 'frontend:want_help' %}" class="lab-btn wow fadeInUp" data-wow-duration="1s"
+                       data-wow-delay=".1s">
                         <span>Want to help</span>
                     </a>
-                    <a href="{% url 'frontend:medical_list' %}" class="lab-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                    <a href="{% url 'frontend:medical_list' %}" class="lab-btn wow fadeInUp" data-wow-duration="1s"
+                       data-wow-delay=".1s">
                         <span> Seeking for help</span>
                     </a>
                 </div>
@@ -28,6 +31,123 @@
         </div>
     </section>
     <!-- ==========Banner Section Ends Here========== -->
+    <!-- ============||Department section start here ||================= -->
+    <section class="department-section style-2 padding-tb bg-color">
+        <div class="container">
+            <div class="section-header wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                <h2 class="text-dark"><span>We Are The</span></h2>
+                <h2 class="text-dark">Best Our Departments Center</h2>
+            </div>
+            <div class="section-wrapper">
+                <div class="lab-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                    <div class="lab-item-inner">
+                        <h4 class="text-dark">Oxygen Cylinder</h4>
+                        <img src="{% static 'assets/images/depart/icon/01.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="lab-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                    <div class="lab-item-inner">
+                        <h4 class="text-dark">Plasma</h4>
+                        <img src="{% static 'assets/images/depart/icon/02.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="lab-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                    <div class="lab-item-inner">
+                        <h4 class="text-dark">Remdisvir</h4>
+                        <img src="{% static 'assets/images/depart/icon/03.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="lab-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                    <div class="lab-item-inner">
+                        <h4 class="text-dark">Tocilizumab</h4>
+                        <img src="{% static 'assets/images/depart/icon/04.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="lab-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                    <div class="lab-item-inner">
+                        <h4 class="text-dark">Otology</h4>
+                        <img src="{% static 'assets/images/depart/icon/05.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="lab-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
+                    <div class="lab-item-inner">
+                        <h4 class="text-dark">Pulmonology</h4>
+                        <img src="{% static 'assets/images/depart/icon/06.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="lab-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
+                    <div class="lab-item-inner">
+                        <h4 class="text-dark">Urology</h4>
+                        <img src="{% static 'assets/images/depart/icon/01.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="lab-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
+                    <div class="lab-item-inner">
+                        <h4 class="text-dark">Dental Care</h4>
+                        <img src="{% static 'assets/images/depart/icon/02.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="lab-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".9s">
+                    <div class="lab-item-inner">
+                        <h4 class="text-dark">Orthopedics</h4>
+                        <img src="{% static 'assets/images/depart/icon/03.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="lab-item wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">
+                    <div class="lab-item-inner">
+                        <h4 class="text-dark">Eye Care</h4>
+                        <img src="{% static 'assets/images/depart/icon/04.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ============||Department section end here ||================= -->
+    <!-- ==========Footer Section Ends Here========== -->
+    <section class="footer-section style-1">
+        <div class="container">
+            <div class="section-wrapper">
+                <div class="footer-top">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-xl-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                            <div class="contact-info">
+                                <h3>Our Mission</h3>
+                                <p>Everyday we are losing someone just due to lack of proper health support
+                                    Everyone is looking for contacts of those who can help them
+                                    With Oxygen/Plasma/Medicines/Injection/Medical Support.
+                                    This is time for us to help and look for each other from our connections.
+                                </p>
+                                <p>
+                                    Please be a helping hand of someone in need.
+                                </p>
+                                <p>
+                                    Your few minutes can save a life.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-xl-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                            <div class="contact-info">
+                                <h3>Support Links</h3>
+                                <p>There are various Government and Non Government organizations which are
+                                    working for our support please visit them
+                                    if you required any support.</p>
+                                <ul class="lab-ul">
+                                    <li><i class="icofont-globe"></i> <a href="https://www.dhoondh.com/">Dhoondh -
+                                        Plasma Donation</a></li>
+                                    <li><i class="icofont-globe"></i> <a href="https://www.cowin.gov.in/home">CoWin -
+                                        Register yourself for Vaccination</a></li>
+                                    <li><i class="icofont-globe"></i> <a href="https://covid19.india.gov.in/">Covid-19
+                                        Helpline - Government of India</a></li>
+                                </ul>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    {% endblock %}
+    <!-- ==========Footer Section Ends Here========== -->
+
+{% endblock %}

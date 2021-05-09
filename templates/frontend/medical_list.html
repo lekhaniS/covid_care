@@ -3,109 +3,165 @@
 {% block extra_css %}
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/dataTables.min.css' %}"/>
     <style>
-            #blood_group_body{
-                display: none;
-            }
+        #blood_group_body {
+            display: none;
+        }
     </style>
 {% endblock %}
 {% block page_content %}
-    <br/>
-    <section class="container">
-        <h3 class="alert alert-info"> Details</h3>
-        <div class="table-responsive">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <select class="form-control" id="search_option1" name="select_option1">
-                                <option>Select one</option>
-                                <option value="{% url 'frontend:filter_list' '0' %}"{% if key == 0 %}selected{% endif %}>Oxygen cylinder</option>
-                                <option value="{% url 'frontend:filter_list' '1' %}"{% if key == 1 %}selected{% endif %}>Plasma Donor</option>
-                                <option value="{% url 'frontend:filter_list' '2' %}"{% if key == 2 %}selected{% endif %}>Medical Supplies</option>
-                                <option value="{% url 'frontend:filter_list' '3' %}" {% if key == 3 %}selected{% endif %}>Medical Advisor</option>
-                            </select>
-                        </div>
+
+    <!-- ==========Page Header Section Start Here========== -->
+    <section class="page-header-section service-title style-1"
+             style="background-image: url({% static 'assets/images/pageheader/pageheader.jpg' %}); width: 100%;">
+        <div class="page-header-content">
+            <div class="container">
+                <div class="page-header-content-inner">
+                    <div class="page-title">
+                        <h2>From Your Help</h2>
                     </div>
-                    <div class="col-md-3" {% if key == 1 %}style="display: block !important;" {% else %} style="display: none;" {% endif %}>
-                        <div class="form-group">
-                            <select class="form-control" id="search_option2" name="blood_group">
-                                <option value="{% url 'frontend:plasma' 'A+' %}"{% if plasma_key == 'A+' %}selected{% endif %}>A+</option>
-                                <option value="{% url 'frontend:plasma' 'A-' %}"{% if plasma_key == 'A-' %}selected{% endif %}>A-</option>
-                                <option value="{% url 'frontend:plasma' 'B+' %}"{% if plasma_key == 'B+' %}selected{% endif %}>B+</option>
-                                <option value="{% url 'frontend:plasma' 'B-' %}"{% if plasma_key == 'B-' %}selected{% endif %}>B-</option>
-                                <option value="{% url 'frontend:plasma' 'O+' %}"{% if plasma_key == 'O+' %}selected{% endif %}>O+</option>
-                                <option value="{% url 'frontend:plasma' 'O-' %}"{% if plasma_key == 'O-' %}selected{% endif %}>O-</option>
-                                <option value="{% url 'frontend:plasma' 'AB+' %}"{% if plasma_key == 'AB+' %}selected{% endif %}>AB+</option>
-                                <option value="{% url 'frontend:plasma' 'AB-' %}"{% if plasma_key == 'AB-' %}selected{% endif %}>AB-</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <a href="{% url 'frontend:medical_list' %}" class="btn btn-primary text-white">Show All Data</a>
-                        </div>
-                    </div>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'frontend:index' %}">Home</a></li>
+                        <li class="active">All Results</li>
+                    </ol>
                 </div>
-            <table id="data_table" class="table table-striped table-bordered text-center" style="width:100%">
-                <thead>
-                <tr>
-                    <th>Name/Organization</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>State</th>
-                    <th>City/PAN</th>
-                    {% if key == 3 %}
-                        <th>Doctor</th>
-                        <th>Healthcare Workers</th>
-                    {% endif %}
-                    {% if key == 2 %}
-                        <th>Remdisivr</th>
-                        <th>Toclizumab</th>
-                        <th>others</th>
-                    {% endif %}
-                </tr>
-                </thead>
-                <tbody>
-                {% for list in lists %}
-                    <tr>
-                        <td>{% if list.get_fullname %}{{ list.get_fullname }}{% else %}Not Available{% endif %}</td>
+            </div>
+        </div>
+    </section>
+    <!-- ==========Page Header Section Ends Here========== -->
+    <section class="contact-us pt-5">
+        <div class="container">
+            <div class="section-wrapper">
+                <div class="table-responsive">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select class="form-control" id="search_option1" name="select_option1">
+                                    <option>Select one</option>
+                                    <option value="{% url 'frontend:filter_list' '0' %}"
+                                            {% if key == 0 %}selected{% endif %}>Oxygen cylinder
+                                    </option>
+                                    <option value="{% url 'frontend:filter_list' '1' %}"
+                                            {% if key == 1 %}selected{% endif %}>Plasma Donor
+                                    </option>
+                                    <option value="{% url 'frontend:filter_list' '2' %}"
+                                            {% if key == 2 %}selected{% endif %}>Medical Supplies
+                                    </option>
+                                    <option value="{% url 'frontend:filter_list' '3' %}"
+                                            {% if key == 3 %}selected{% endif %}>Medical Advisor
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3" {% if key == 1 %}style="display: block !important;" {% else %}
+                             style="display: none;" {% endif %}>
+                            <div class="form-group">
+                                <select class="form-control" id="search_option2" name="blood_group">
+                                    <option value="{% url 'frontend:plasma' 'A+' %}"
+                                            {% if plasma_key == 'A+' %}selected{% endif %}>A+
+                                    </option>
+                                    <option value="{% url 'frontend:plasma' 'A-' %}"
+                                            {% if plasma_key == 'A-' %}selected{% endif %}>A-
+                                    </option>
+                                    <option value="{% url 'frontend:plasma' 'B+' %}"
+                                            {% if plasma_key == 'B+' %}selected{% endif %}>B+
+                                    </option>
+                                    <option value="{% url 'frontend:plasma' 'B-' %}"
+                                            {% if plasma_key == 'B-' %}selected{% endif %}>B-
+                                    </option>
+                                    <option value="{% url 'frontend:plasma' 'O+' %}"
+                                            {% if plasma_key == 'O+' %}selected{% endif %}>O+
+                                    </option>
+                                    <option value="{% url 'frontend:plasma' 'O-' %}"
+                                            {% if plasma_key == 'O-' %}selected{% endif %}>O-
+                                    </option>
+                                    <option value="{% url 'frontend:plasma' 'AB+' %}"
+                                            {% if plasma_key == 'AB+' %}selected{% endif %}>AB+
+                                    </option>
+                                    <option value="{% url 'frontend:plasma' 'AB-' %}"
+                                            {% if plasma_key == 'AB-' %}selected{% endif %}>AB-
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <a href="{% url 'frontend:medical_list' %}" class="btn btn-primary text-white">Show All
+                                    Data</a>
+                            </div>
+                        </div>
+                    </div>
+                    <table id="data_table" class="table table-striped table-bordered text-center" style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>Name/Organization</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>State</th>
+                            <th>City/PAN</th>
+                            {% if key == 3 %}
+                                <th>Doctor</th>
+                                <th>Healthcare Workers</th>
+                            {% endif %}
+                            {% if key == 2 %}
+                                <th>Remdisivr</th>
+                                <th>Toclizumab</th>
+                                <th>others</th>
+                            {% endif %}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for list in lists %}
+                            <tr>
+                                <td>{% if list.get_fullname %}{{ list.get_fullname }}{% else %}Not
+                                    Available{% endif %}</td>
 
-                        <td>{% if list.email %}{{ list.email }}{% else %}Not Available{% endif %}</td>
-                        <td>{% if list.phone %}{{ list.phone }}{% else %}Not Available{% endif %}</td>
-                        <td>{{ list.get_state_display }}</td>
-                        <td>{% if list.city %}{{ list.city }}{% else %}Not Available{% endif %}</td>
+                                <td>{% if list.email %}{{ list.email }}{% else %}Not Available{% endif %}</td>
+                                <td>{% if list.phone %}{{ list.phone }}{% else %}Not Available{% endif %}</td>
+                                <td>{{ list.get_state_display }}</td>
+                                <td>{% if list.city %}{{ list.city }}{% else %}Not Available{% endif %}</td>
 
-                        {% if key == 3 %}
-                            <td>{% if  list.doctor  %}<i class="fa fa-check text-success" aria-hidden="true"></i>{% else %}<i class="fa fa-times text-danger" aria-hidden="true"></i>{% endif %}</td>
-                            <td>{% if  list.health_care_worker  %}<i class="fa fa-check text-success" aria-hidden="true"></i>{% else %}<i class="fa fa-times text-danger" aria-hidden="true"></i>{% endif %}</td>
-                        {% endif %}
-                        {% if key == 2 %}
-                            <td>{% if  list.remdisivr  %}<i class="fa fa-check text-success" aria-hidden="true"></i>{% else %}<i class="fa fa-times text-danger" aria-hidden="true"></i>{% endif %}</td>
-                            <td>{% if  list.toclizumab  %}<i class="fa fa-check text-success" aria-hidden="true"></i>{% else %}<i class="fa fa-times text-danger" aria-hidden="true"></i>{% endif %}</td>
-                            <td>{% if list.specify_other %}{{ list.specify_other }}{% else %}---{% endif %}</td>
-                        {% endif %}
-                    </tr>
-                {% endfor %}
-                </tbody>
-                <tfoot>
-                <tr>
+                                {% if key == 3 %}
+                                    <td>{% if  list.doctor %}
+                                        <i class="fa fa-check text-success" aria-hidden="true"></i>{% else %}
+                                        <i class="fa fa-times text-danger" aria-hidden="true"></i>{% endif %}</td>
+                                    <td>{% if  list.health_care_worker %}
+                                        <i class="fa fa-check text-success" aria-hidden="true"></i>{% else %}
+                                        <i class="fa fa-times text-danger" aria-hidden="true"></i>{% endif %}</td>
+                                {% endif %}
+                                {% if key == 2 %}
+                                    <td>{% if  list.remdisivr %}
+                                        <i class="fa fa-check text-success" aria-hidden="true"></i>{% else %}
+                                        <i class="fa fa-times text-danger" aria-hidden="true"></i>{% endif %}</td>
+                                    <td>{% if  list.toclizumab %}
+                                        <i class="fa fa-check text-success" aria-hidden="true"></i>{% else %}
+                                        <i class="fa fa-times text-danger" aria-hidden="true"></i>{% endif %}</td>
+                                    <td>{% if list.specify_other %}{{ list.specify_other }}{% else %}---{% endif %}</td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                        <tr>
 
-                    <th>Name/Organization</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>State</th>
-                    <th>City/PAN</th>
-                    {% if key == 3 %}
-                    <th >Doctor</th>
-                    <th>Healthcare Workers</th>
-                    {% endif %}
-                {% if key == 2 %}
-                    <th>Remdisivr</th>
-                    <th>Toclizumab</th>
-                    <th>others</th>
-                {% endif %}
-                </tr>
-                </tfoot>
-            </table>
+                            <th>Name/Organization</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>State</th>
+                            <th>City/PAN</th>
+                            {% if key == 3 %}
+                                <th>Doctor</th>
+                                <th>Healthcare Workers</th>
+                            {% endif %}
+                            {% if key == 2 %}
+                                <th>Remdisivr</th>
+                                <th>Toclizumab</th>
+                                <th>others</th>
+                            {% endif %}
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -157,20 +213,20 @@
     </script>
 
     <script>
-    $(function(){
-        // bind change event to select
-        $('#search_option1').bind('change', function () {
-            var url = $(this).val(); // get selected value
-            window.location = url; // redirect
-            return false;
-         });
-     });
-    $(function (){
-         $('#search_option2').bind('change', function () {
-            var call_url = $(this).val(); // get selected value
-            window.location = call_url; // redirect
-            return false;
-         });
-    })
- </script>
+        $(function () {
+            // bind change event to select
+            $('#search_option1').bind('change', function () {
+                var url = $(this).val(); // get selected value
+                window.location = url; // redirect
+                return false;
+            });
+        });
+        $(function () {
+            $('#search_option2').bind('change', function () {
+                var call_url = $(this).val(); // get selected value
+                window.location = call_url; // redirect
+                return false;
+            });
+        })
+    </script>
 {% endblock %}

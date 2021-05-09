@@ -93,3 +93,7 @@ def blood_group(request, pk):
         context.update({'lists': lists, 'key': 1, 'plasma_key': str(pk)})
         return render(request, 'frontend/medical_list.html', context)
     return redirect('frontend:medical_list')
+
+
+def about_us(request):
+    return render(request, 'frontend/about.html')

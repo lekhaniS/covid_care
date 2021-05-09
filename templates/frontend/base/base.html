@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- Mirrored from labartisan.net/demo/mukti/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Apr 2021 13:01:49 GMT -->
 <head>
     <meta charset="UTF-8">
+ <meta name="description" content="Your Helping Hand">
+  <meta name="keywords" content="Covid-19,covid19, want to help,want to help in covid, medical, help, corona, cylinder, ventilator, beds available, mp beds available, plasma">
+  <meta name="author" content="yourhealpinghand.in">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
             rel="stylesheet">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/logo/logo.png' %}">
@@ -27,14 +27,29 @@
 
 
     <title>Your Helping Hands</title>
-<style>
-    .right_nav{
+    <style>
+        .right_nav {
             text-align: right;
-    }
-    .right_nav>li{
-        display: inline-block;
-    }
-</style>
+        }
+
+        .right_nav > li {
+            display: inline-block;
+        }
+        .footer-bottom{
+            padding: 30px 20px;
+            border: 1px solid #ddd;
+        }
+        .footer-bottom span>a{
+            color: #c73c31;
+            font-weight: 600;
+        }
+        .main-menu li a{
+            padding: 0;
+        }
+        .nav-padding{
+            padding: 25px 15px
+        }
+    </style>
 </head>
 
 <body>
@@ -70,6 +85,11 @@
             <ul class="depart-nav">
                 <li class="depart">
                     <a href="{% url 'frontend:add_hospital' %}">Hospital</a>
+                </li>
+            </ul>
+            <ul class="depart-nav">
+                <li class="depart">
+                    <a href="{% url 'frontend:about_us' %}">About Us</a>
                 </li>
             </ul>
 
@@ -132,19 +152,22 @@
                 <div class="menu-area">
 
                     <div class="">
-                        <ul class="main-menu right_nav" style="justify-content: flex-end;">
-                             <li style="float: left;">
-                            <a href="{% url 'frontend:index' %}">
-                                <img src="{% static 'assets/images/logo/logo.png' %}" style="width: 50px;" alt="">
-                            </a>
+                        <ul class="main-menu right_nav nav-padding" style="justify-content: flex-end;">
+                            <li style="float: left;">
+                                <a href="{% url 'frontend:index' %}">
+                                    <img src="{% static 'assets/images/logo/logo.png' %}" style="width: 50px;" alt="">
+                                </a>
 
-                        </li>
+                            </li>
                             <li class="active">
                                 <a href="{% url 'frontend:index' %}">Home</a>
 
                             </li>
                             <li>
                                 <a href="{% url 'frontend:add_hospital' %}"> Hospital</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'frontend:about_us' %}"> About Us</a>
                             </li>
                         </ul>
                     </div>
@@ -162,51 +185,11 @@
 
 
 <!-- ==========Footer Section Ends Here========== -->
-<section class="footer-section style-1">
-    <div class="container">
-        <div class="section-wrapper">
-            <div class="footer-top">
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-xl-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                        <div class="contact-info">
-                            <h3>Our Mission</h3>
-                            <p>Everyday we are losing someone just due to lack of proper health support
-                                Everyone is looking for contacts of those who can help them
-                                With Oxygen/Plasma/Medicines/Injection/Medical Support.
-                                This is time for us to help and look for each other from our connections.
-                            </p>
-                            <p>
-                                Please be a helping hand of someone in need.
-                            </p>
-                            <p>
-                                Your few minutes can save a life.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-xl-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                        <div class="contact-info">
-                            <h3>Support Links</h3>
-                            <p>There are various Government and Non Government organizations which are
-                                working for our support please visit them
-                                if you required any support.</p>
-                            <ul class="lab-ul">
-                                <li><i class="icofont-globe"></i> <a href="https://www.dhoondh.com/">Dhoondh - Plasma Donation</a></li>
-                                <li><i class="icofont-globe"></i> <a href="https://www.cowin.gov.in/home">CoWin - Register yourself for Vaccination</a></li>
-                                <li><i class="icofont-globe"></i> <a href="https://covid19.india.gov.in/">Covid-19 Helpline - Government of India</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="copyright text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                    <span>Copyright &copy; 2021 <a href="{% url 'frontend:index' %}">YourHelpingHands</a></span>.
-                </div>
-            </div>
-        </div>
+<div class="footer-bottom mt-5">
+    <div class="copyright text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+        <span>Copyright &copy; 2021 <a href="{% url 'frontend:index' %}">YourHelpingHands</a></span>.
     </div>
-</section>
+</div>
 <!-- ==========Footer Section Ends Here========== -->
 
 <!-- scrollToTop start here -->

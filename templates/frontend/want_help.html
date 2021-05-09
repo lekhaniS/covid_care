@@ -1,7 +1,7 @@
 {% extends 'frontend/base/base.html' %}
 {% load static %}
 {% block extra_css %}
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
@@ -9,7 +9,7 @@
             width: auto;
         }
     </style>
-      <style>
+    <style>
         .modal-confirm {
             color: #434e65;
             width: 525px;
@@ -111,8 +111,7 @@
     </style>
 {% endblock %}
 {% block page_content %}
-    <br/>
-        <!-- Modal HTML -->
+    <!-- Modal HTML -->
     <div id="success_modal" data-backdrop="static" data-keyboard="false" class="modal fade">
         <div class="modal-dialog modal-confirm">
             <div class="modal-content">
@@ -133,130 +132,153 @@
         </div>
     </div>
 
-    <section class="container">
-        <form method="post" action="{% url 'frontend:want_help' %}">
-            {% csrf_token %}
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="alert alert-info">Add Details</h3>
-                </div>
-                <div class="col-md-4">
-                    <label>First Name/ Organization</label>
-                    <div class="form-group">
-                        {{ forms.first_name }}
-                        {% if  errors.first_name %}<p class="text-danger">{{ errors.first_name }}{% endif %}</p>
+    <!-- ==========Page Header Section Start Here========== -->
+    <section class="page-header-section service-title style-1"
+             style="background-image: url({% static 'assets/images/pageheader/pageheader.jpg' %}); width: 100%;">
+        <div class="page-header-content">
+            <div class="container">
+                <div class="page-header-content-inner">
+                    <div class="page-title">
+                        <h2>I Want to Help for...</h2>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <label>Last Name</label>
-                    <div class="form-group">
-                        {{ forms.last_name }}
-                        {% if  errors.last_name %}<p  class="text-danger">{{ errors.last_name }}{% endif %}</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label>Email</label>
-                    <div class="form-group">
-                        {{ forms.email }}
-                        {% if  errors.email %}<p class="text-danger">{{ errors.email }}{% endif %}</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label>Phone</label>
-                    <div class="form-group">
-                        {{ forms.phone }}
-                        {% if  errors.phone %}<p class="text-danger">{{ errors.phone }}{% endif %}</p>
-
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label>State</label>
-                    <div class="form-group">
-                        {{ forms.state }}
-                        {% if  errors.state %}<p class="text-danger">{{ errors.state }}{% endif %}</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label>City / PAN</label>
-                    <div class="form-group">
-                        {{ forms.city }}
-                        {% if  errors.city %}<p class="text-danger">{{ errors.city }}{% endif %}</p>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <label class="text-primary">Please select One or the more from </label>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="form-group">
-                        {{ forms.oxygen_cylinder_supplier }}
-                        <label for="id_oxygen_cylinder_supplier">Oxygen Cylinder</label>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        {{ forms.plasma_donor }}
-                        <label for="id_plasma_donor">Plasma Donor</label>
-                    </div>
-                    <div class="border-info border p-2" id="plasmadoner_body">
-                        <div class="form-group">
-                            <label>Blood Group</label>
-                            {{ forms.blood_group }}
-                        </div>
-                    </div>
-                    <br/>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        {{ forms.medical_supplier }}
-                        <label for="id_medical_supplier">Medical Supply</label>
-                    </div>
-                    <div class="border-info border p-2" id="madical_supply_body">
-                        <div class="form-group">
-                            {{ forms.remdisivr }}
-                            <label for="id_remdisivr">Remdisvir</label>
-                        </div>
-                        <div class="form-group">
-                            {{ forms.toclizumab }}
-                            <label for="id_toclizumab">Tocilizumab</label>
-                        </div>
-                        <div class="form-group">
-                            <input id="other" type="checkbox" style="width: auto;">
-                            <label for="other">Other</label>
-                            <div id="other_medical_body">
-                                {{ forms.specify_other }}
-                            </div>
-                        </div>
-                    </div>
-                    <br/>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        {{ forms.medical_support }}
-                        <label for="id_medical_support">Medical Help</label>
-                    </div>
-                    <div class="border-info border p-2 " id="medical_help_body">
-
-                        <div class="form-group">
-                            {{ forms.doctor }}
-                            <label for="id_doctor">Doctor</label>
-                        </div>
-                        <div class="form-group">
-                            {{ forms.health_care_worker }}
-                            <label for="id_health_care_worker">HealthCare Worker</label>
-                        </div>
-                    </div>
-                    <br/>
-                </div>
-                <div class="col-md-12">
-                    <label>Additional Details</label>
-                    {{ forms.additional_details }}
-                </div>
-                <div class="col-md-12 text-right">
-                    <input type="submit" class="btn btn-dark btn-lg" value="Submit">
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'frontend:index' %}">Home</a></li>
+                        <li class="active">Add Availabilities</li>
+                    </ol>
                 </div>
             </div>
-        </form>
+        </div>
+    </section>
+    <!-- ==========Page Header Section Ends Here========== -->
+    <section class="contact-us pt-5">
+        <div class="container">
+            <div class="section-wrapper">
+                <form method="post" action="{% url 'frontend:want_help' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        {#                <div class="col-md-12">#}
+                        {#                    <h3 class="alert alert-info">Add Details</h3>#}
+                        {#                </div>#}
+                        <div class="col-md-4">
+                            <label>First Name/ Organization</label>
+                            <div class="form-group">
+                                {{ forms.first_name }}
+                                {% if  errors.first_name %}<p class="text-danger">{{ errors.first_name }}{% endif %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Last Name</label>
+                            <div class="form-group">
+                                {{ forms.last_name }}
+                                {% if  errors.last_name %}<p class="text-danger">{{ errors.last_name }}{% endif %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Email</label>
+                            <div class="form-group">
+                                {{ forms.email }}
+                                {% if  errors.email %}<p class="text-danger">{{ errors.email }}{% endif %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Phone</label>
+                            <div class="form-group">
+                                {{ forms.phone }}
+                                {% if  errors.phone %}<p class="text-danger">{{ errors.phone }}{% endif %}</p>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>State</label>
+                            <div class="form-group">
+                                {{ forms.state }}
+                                {% if  errors.state %}<p class="text-danger">{{ errors.state }}{% endif %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>City / PAN</label>
+                            <div class="form-group">
+                                {{ forms.city }}
+                                {% if  errors.city %}<p class="text-danger">{{ errors.city }}{% endif %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="text-primary">Please select One or the more from </label>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                {{ forms.oxygen_cylinder_supplier }}
+                                <label for="id_oxygen_cylinder_supplier">Oxygen Cylinder</label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                {{ forms.plasma_donor }}
+                                <label for="id_plasma_donor">Plasma Donor</label>
+                            </div>
+                            <div class="border-info border p-2" id="plasmadoner_body">
+                                <div class="form-group">
+                                    <label>Blood Group</label>
+                                    {{ forms.blood_group }}
+                                </div>
+                            </div>
+                            <br/>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                {{ forms.medical_supplier }}
+                                <label for="id_medical_supplier">Medical Supply</label>
+                            </div>
+                            <div class="border-info border p-2" id="madical_supply_body">
+                                <div class="form-group">
+                                    {{ forms.remdisivr }}
+                                    <label for="id_remdisivr">Remdisvir</label>
+                                </div>
+                                <div class="form-group">
+                                    {{ forms.toclizumab }}
+                                    <label for="id_toclizumab">Tocilizumab</label>
+                                </div>
+                                <div class="form-group">
+                                    <input id="other" type="checkbox" style="width: auto;">
+                                    <label for="other">Other</label>
+                                    <div id="other_medical_body">
+                                        {{ forms.specify_other }}
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                {{ forms.medical_support }}
+                                <label for="id_medical_support">Medical Help</label>
+                            </div>
+                            <div class="border-info border p-2 " id="medical_help_body">
+
+                                <div class="form-group">
+                                    {{ forms.doctor }}
+                                    <label for="id_doctor">Doctor</label>
+                                </div>
+                                <div class="form-group">
+                                    {{ forms.health_care_worker }}
+                                    <label for="id_health_care_worker">HealthCare Worker</label>
+                                </div>
+                            </div>
+                            <br/>
+                        </div>
+                        <div class="col-md-12">
+                            <label>Additional Details</label>
+                            {{ forms.additional_details }}
+                        </div>
+                        <div class="col-md-12 text-right">
+                            <button class="lab-btn" type="submit"><span>Submit <i
+                                            class="icofont-double-right"></i></span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
 {% endblock %}
 {% block extra_script %}

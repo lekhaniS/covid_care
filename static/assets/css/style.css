@@ -1213,8 +1213,8 @@ select {
 }
 
 .page-header-section.style-1 {
-  padding-top: 105px;
-  padding-bottom: 80px;
+  padding-top: 50px;
+  padding-bottom: 10px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
