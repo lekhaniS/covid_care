@@ -92,6 +92,11 @@
                     <a href="{% url 'frontend:about_us' %}">About Us</a>
                 </li>
             </ul>
+            <ul class="depart-nav">
+                <li class="depart">
+                    <a href="{% url 'frontend:latest_news' %}">News</a>
+                </li>
+            </ul>
 
         </nav>
     </div>
@@ -101,51 +106,6 @@
 
 <!-- ==========Header Section Starts Here========== -->
 <header class="header-section d-none d-lg-block">
-    {#        <div class="header-top">#}
-    {#            <div class="container">#}
-    {#                <div class="row justify-content-between align-items-center px-15">#}
-    {#                    <div class="header-logo">#}
-    {#                        <a href="{% url 'frontend:index' %}" class="logo"><img src="{% static  'assets/images/logo/logo.png' %}" alt="logo"></a>#}
-    {#                    </div>#}
-    {#                    <ul class="header-contact-info d-flex align-items-center">#}
-    {#                        <li class="item">#}
-    {#                            <div class="item-inner">#}
-    {#                                <div class="item-thumb">#}
-    {#                                    <img src="{% static  'assets/images/header/1.png' %}" alt="">#}
-    {#                                </div>#}
-    {#                                <div class="item-content">#}
-    {#                                    <span>Number :</span>#}
-    {#                                    <p>+880123456789</p>#}
-    {#                                </div>#}
-    {#                            </div>#}
-    {#                        </li>#}
-    {#                        <li class="item">#}
-    {#                            <div class="item-inner">#}
-    {#                                <div class="item-thumb">#}
-    {#                                    <img src="{% static  'assets/images/header/2.png' %}" alt="">#}
-    {#                                </div>#}
-    {#                                <div class="item-content">#}
-    {#                                    <span>Email :</span>#}
-    {#                                    <p>Mukti@gmail.com</p>#}
-    {#                                </div>#}
-    {#                            </div>#}
-    {#                        </li>#}
-    {#                        <li class="item">#}
-    {#                            <div class="item-inner">#}
-    {#                                <div class="item-thumb">#}
-    {#                                    <img src="{% static  'assets/images/header/3.png' %}" alt="">#}
-    {#                                </div>#}
-    {#                                <div class="item-content">#}
-    {#                                    <span>Address :</span>#}
-    {#                                    <p>12 North West New York 100</p>#}
-    {#                                </div>#}
-    {#                            </div>#}
-    {#                        </li>#}
-    {#                    </ul>#}
-    {#                </div>#}
-    {#            </div>#}
-    {#        </div>#}
-
     <div class="header-bottom">
         <nav class="container">
             <div class="primary-menu">
@@ -168,6 +128,10 @@
                             </li>
                             <li>
                                 <a href="{% url 'frontend:about_us' %}"> About Us</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'frontend:latest_news' %}">News</a>
+
                             </li>
                         </ul>
                     </div>
@@ -209,7 +173,4 @@
 <script src="{% static 'assets/js/functions.js' %}"></script>
 {% block extra_script %}{% endblock %}
 </body>
-
-
-<!-- Mirrored from labartisan.net/demo/mukti/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Apr 2021 13:04:24 GMT -->
 </html>

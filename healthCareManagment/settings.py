@@ -79,9 +79,7 @@ WSGI_APPLICATION = 'healthCareManagment.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-print(os.environ.get('DATABASE_NAME'))
 if os.environ.get('DATABASE_NAME'):
-    print('sdfg')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -93,7 +91,6 @@ if os.environ.get('DATABASE_NAME'):
         }
     }
 else:
-    print('zxcv')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
