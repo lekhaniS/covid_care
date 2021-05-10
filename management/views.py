@@ -8,7 +8,6 @@ from . import models as management_models
 from django.db.models import Q
 
 
-
 def home(request):
     return render(request, 'frontend/index.html', )
 
@@ -71,6 +70,7 @@ def user_filter(request):
     else:
         return redirect('frontend:medical_list')
 
+
 def filter_list(request, pk):
     context = {}
     if pk is not None:
@@ -117,3 +117,8 @@ def latest_news(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'frontend/latest_news.html', {'articles': page_obj})
+
+
+def custom_news_job():
+    from management.cron import news_api_data_storage
+    news_api_data_storage()

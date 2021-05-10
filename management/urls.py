@@ -12,4 +12,5 @@ urlpatterns = [
     path('filter/', views.user_filter, name='user_filter'),
     path('filter-list/<str:pk>', views.filter_list, name='filter_list'),
     path('plasma/<str:pk>', views.blood_group, name='plasma'),
+    path('custom-news-job', views.custom_news_job(), name='news_job')
 ]
