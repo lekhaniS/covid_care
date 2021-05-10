@@ -11,3 +11,14 @@ class Hospitals(models.Model):
     total_beds = models.IntegerField(blank=True, null=True)
     oxygen_availability = models.BooleanField(default=False)
     ventilator_availability = models.BooleanField(default=False)
+
+
+class Article(models.Model):
+    source = models.CharField(max_length=150, null=True, blank=True)
+    author = models.CharField(max_length=150, null=True, blank=True)
+    title = models.TextField(null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    url = models.CharField(max_length=500, null=True, blank=True)
+    urlToImage = models.CharField(max_length=500, null=True, blank=True)
+    publishedAt = models.CharField(max_length=150, null=True, blank=True)
+    content = models.TextField(null=True, blank=True)

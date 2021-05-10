@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_crontab',
+
     'user',
     'management'
 ]
@@ -77,8 +79,9 @@ WSGI_APPLICATION = 'healthCareManagment.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+print(os.environ.get('DATABASE_NAME'))
 if os.environ.get('DATABASE_NAME'):
+    print('sdfg')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -90,6 +93,7 @@ if os.environ.get('DATABASE_NAME'):
         }
     }
 else:
+    print('zxcv')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -145,6 +149,7 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 # else:
 #     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+CRONJOBS = [('0 12 * * *', 'management.cron.news_api_data_storage')]
 
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
