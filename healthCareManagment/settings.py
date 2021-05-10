@@ -146,7 +146,7 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 # else:
 #     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-CRONJOBS = [('0 12 * * *', 'management.cron.news_api_data_storage')]
+CRONJOBS = [('* */6 * * *', 'management.cron.news_api_data_storage')]
 
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
@@ -163,3 +163,7 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import dateutil.parser
+x = dateutil.parser.parse('2021-05-07T07:35:00Z')
+print(str(x))

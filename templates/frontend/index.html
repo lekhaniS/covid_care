@@ -35,8 +35,8 @@
     <section class="department-section style-2 padding-tb bg-color">
         <div class="container">
             <div class="section-header wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                <h2 class="text-dark"><span>We Are The</span></h2>
-                <h2 class="text-dark">Best Our Departments Center</h2>
+                <h2 class="text-dark"><span>We Are Here</span></h2>
+                <h2 class="text-dark">To Support You With</h2>
             </div>
             <div class="section-wrapper">
                 <div class="lab-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
@@ -63,6 +63,23 @@
                     </div>
                    </a>
                 </div>
+                <div class="lab-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                   <a href="{% url 'frontend:filter_list' '3' %}">
+                    <div class="lab-item-inner">
+                        <h4 class="text-dark">Medical Support</h4>
+                        <img src="{% static 'assets/images/depart/icon/07.png' %}" alt="">
+                    </div>
+                   </a>
+                </div>
+                <div class="lab-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                   <a href="{% url 'frontend:filter_list' '4' %}">
+                    <div class="lab-item-inner">
+                        <h4 class="text-dark">Hospitals</h4>
+                        <img src="{% static 'assets/images/depart/icon/09.png' %}" alt="">
+                    </div>
+                   </a>
+                </div>
+
             </div>
         </div>
     </section>

@@ -7,7 +7,6 @@ from . import models as management_models
 
 from django.db.models import Q
 
-# from .cron import news_api_data_storage
 
 
 def home(request):
@@ -113,7 +112,6 @@ def get_news():
 
 
 def latest_news(request):
-    # news_api_data_storage()
     news = get_news()
     paginator = Paginator(news, 10)
     page_number = request.GET.get('page')

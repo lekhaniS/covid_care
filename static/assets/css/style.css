@@ -3843,11 +3843,11 @@ select {
 
 /* @@@@@@@@@@@@@  Common CSS Writing Now  @@@@@@@@@@@@@@ */
 .padding-tb {
-  padding: 80px 0;
+  padding: 20px 0 80px;
 }
 @media (min-width: 992px) {
   .padding-tb {
-    padding: 120px 0;
+    padding: 20px 0 80px;
   }
 }
 
