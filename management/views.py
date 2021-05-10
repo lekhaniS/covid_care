@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from . import forms as management_forms
 from user import models as user_model
 from . import models as management_models
+
 from django.db.models import Q
 
 # from .cron import news_api_data_storage
@@ -35,6 +36,7 @@ def add_hospital(request):
 
     if request.method == 'POST':
         forms = management_forms.AddHospital(request.POST)
+        print(forms)
         if forms.is_valid():
             forms.save()
             context.update({'forms': form, 'success': 'true'})
@@ -70,7 +72,6 @@ def user_filter(request):
     else:
         return redirect('frontend:medical_list')
 
-
 def filter_list(request, pk):
     context = {}
     if pk is not None:
@@ -86,6 +87,10 @@ def filter_list(request, pk):
         elif int(pk) == 1:
             lists = user_model.User.objects.filter(plasma_donor=True)
             context.update({'lists': lists, 'key': 1})
+        elif int(pk) == 4:
+            lists = management_models.Hospitals.objects.all()
+            print(pk, lists)
+            context.update({'lists': lists, 'key': 4})
         return render(request, 'frontend/medical_list.html', context)
     return redirect('frontend:medical_list')
 

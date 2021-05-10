@@ -139,3 +139,5 @@ cython_debug/
 Backend
 .idea
 .log
+
+set_env.sh
